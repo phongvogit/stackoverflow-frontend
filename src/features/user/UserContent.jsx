@@ -7,7 +7,7 @@ import './userContent.css';
 
 const UserContent = () => {
 	return (
-		<div className='row user-content'>
+		<div className='user-content'>
 			<div className='col-9 user-content__info'>
 				<h2 className='headline'>Users</h2>
 				<h4 className='quantity'>7 users</h4>
@@ -15,7 +15,7 @@ const UserContent = () => {
 					<SearchCustom />
 				</div>
 
-				<div className='grid-layout'>
+				<div className='grid-layout-users'>
 					<CardUser />
 					<CardUser />
 					<CardUser />

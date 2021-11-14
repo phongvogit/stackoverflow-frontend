@@ -7,7 +7,7 @@ import './tagContent.css';
 
 const TagContent = () => {
 	return (
-		<div className='row tag-content'>
+		<div className='tag-content'>
 			<div className='col-9 tag-content__info'>
 				<h2 className='headline'>Tags</h2>
 				<p className='body'>
@@ -20,7 +20,7 @@ const TagContent = () => {
 					<SearchCustom />
 				</div>
 
-				<div className='tag-content__info-tags grid-layout'>
+				<div className='tag-content__info-tags grid-layout-tags'>
 					<CardTag />
 					<CardTag />
 					<CardTag />

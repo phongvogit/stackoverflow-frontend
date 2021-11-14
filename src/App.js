@@ -1,12 +1,12 @@
 import { Route, Switch } from 'react-router';
 import HomeLayout from './components/Layout/HomeLayout/HomeLayout';
-import Login from './features/login/Login';
+import LoginLayout from './components/Layout/LoginLayout/LoginLayout';
 
 function App() {
 	return (
 		<>
 			<Switch>
-				<Route path='/login' component={Login} exact />
+				<Route path='/login' component={LoginLayout} exact />
 				<Route component={(props) => <HomeLayout {...props} />} />
 			</Switch>
 		</>

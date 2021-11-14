@@ -1,10 +1,20 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import './linkButton.css';
 
-const LinkButton = ({ label, type, ...props }) => {
+const LinkButton = ({ label, type, href, ...props }) => {
+	const history = useHistory();
+
+	const handleButtonClick = () => {
+		history.push(Boolean(href) ? href : '#');
+	};
+
 	return (
 		<>
-			<button className={`s-btn ${type}`} {...props}>
+			<button
+				{...props}
+				className={`s-btn ${type}`}
+				onClick={handleButtonClick}>
 				{label}
 			</button>
 		</>

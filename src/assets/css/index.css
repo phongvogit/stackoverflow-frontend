@@ -38,7 +38,7 @@ a {
 }
 
 a:hover {
-	color: var(--main-color);
+	color: #59a8e0;
 }
 
 button {
@@ -59,4 +59,8 @@ input {
 
 input:focus {
 	border: 2px solid var(--main-color);
+}
+
+.ml-1 {
+	margin-left: 8px;
 }

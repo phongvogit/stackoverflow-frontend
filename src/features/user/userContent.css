@@ -1,3 +1,8 @@
+.user-content {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
 .user-content__info {
 	margin: 24px;
 	color: var(--txt-white);
@@ -21,7 +26,7 @@
 	width: 280px;
 }
 
-.grid-layout {
+.grid-layout-users {
 	display: grid;
 	grid-gap: 12px;
 	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
