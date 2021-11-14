@@ -1,0 +1,28 @@
+.layout {
+	color: var(--txt-color);
+
+	display: 'grid';
+	grid-template-rows: 'auto 1fr';
+	grid-template-columns: '240px 1fr';
+	grid-template-areas: 'header header' 'sidebar main';
+
+	min-height: '100vh';
+}
+
+.layout__header {
+	grid-area: 'header';
+}
+
+.layout__sidebar {
+	grid-area: 'sidebar';
+}
+
+.layout__content {
+	grid-area: 'main';
+
+	margin-top: var(--topnav-height);
+	margin-left: var(--sidebar-width);
+	background-color: var(--main-bg);
+
+	min-height: 100vh;
+}

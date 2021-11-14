@@ -1,0 +1,36 @@
+.search {
+	position: relative;
+	height: 35px;
+
+	display: flex;
+	align-items: center;
+
+	margin-right: 20px;
+	border-radius: 3px;
+	background-color: hsl(0, 0%, 18%);
+	border: 1px solid #61686c;
+
+	color: hsl(210, 4%, 95%);
+	font-size: 13px;
+	overflow: hidden;
+}
+
+.search > input {
+	height: 100%;
+	width: 100%;
+	padding: 10px 10px 10px 30px;
+	background-color: hsl(0, 0%, 18%);
+	border-radius: 3px;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	color: hsl(210, 4%, 95%);
+}
+
+.search > input:focus {
+	border: 2px solid hsl(206, 64%, 64%);
+}
+
+.search > i {
+	position: absolute;
+	font-size: 1.2rem;
+	left: 7px;
+}

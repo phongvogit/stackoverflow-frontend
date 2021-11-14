@@ -1,10 +1,15 @@
-import './App.css';
+import { Route, Switch } from 'react-router';
+import HomeLayout from './components/Layout/HomeLayout/HomeLayout';
+import Login from './features/login/Login';
 
 function App() {
 	return (
-		<div>
-			<h1>HelloWorld</h1>
-		</div>
+		<>
+			<Switch>
+				<Route path='/login' component={Login} exact />
+				<Route component={(props) => <HomeLayout {...props} />} />
+			</Switch>
+		</>
 	);
 }
 

@@ -1,0 +1,28 @@
+.user-content__info {
+	margin: 24px;
+	color: var(--txt-white);
+}
+
+.headline {
+	margin-bottom: 24px;
+	color: #ffffff;
+}
+
+.quantity,
+.search-form {
+	margin-bottom: 12px;
+}
+
+.quantity {
+	color: #ffffff;
+}
+
+.search-form {
+	width: 280px;
+}
+
+.grid-layout {
+	display: grid;
+	grid-gap: 12px;
+	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
