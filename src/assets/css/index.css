@@ -64,3 +64,7 @@ input:focus {
 .ml-1 {
 	margin-left: 8px;
 }
+
+.link {
+	color: #007bff;
+}

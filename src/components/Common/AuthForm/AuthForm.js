@@ -13,7 +13,7 @@ const AuthForm = ({ action = 'Login' }) => {
 	const signUpLink = (
 		<>
 			Already have an account?{' '}
-			<Link to='/login' name='login' className='link'>
+			<Link to='/login' name='login' className='link ml-1'>
 				Log in
 			</Link>
 		</>
@@ -22,7 +22,7 @@ const AuthForm = ({ action = 'Login' }) => {
 	const logInLink = (
 		<>
 			Don't have an account?{' '}
-			<Link to='/register' name='register' className='link ml-1'>
+			<Link to='/signup' name='register' className='link ml-1'>
 				Sign up
 			</Link>
 		</>
@@ -43,7 +43,7 @@ const AuthForm = ({ action = 'Login' }) => {
 					</div>
 					<LinkButton
 						type={'s-btn__primary'}
-						label={'Login'}
+						label={action === 'Sign up' ? 'Sign up' : 'Login'}
 						style={{ width: '100%', height: '100%' }}
 					/>
 				</form>

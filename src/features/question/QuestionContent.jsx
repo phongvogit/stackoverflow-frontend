@@ -12,7 +12,11 @@ const QuestionContent = () => {
 					style={{ padding: '30px 0px 0px 30px' }}>
 					<div className='main-content__header-questions'>
 						<h2>All Questions</h2>
-						<LinkButton type={'s-btn__primary'} label={'Ask Question'} />
+						<LinkButton
+							type={'s-btn__primary'}
+							label={'Ask Question'}
+							href='addQuestion'
+						/>
 					</div>
 					<div className='main-content__header-buttons'>
 						<LinkButton
@@ -27,7 +31,8 @@ const QuestionContent = () => {
 						/>
 					</div>
 				</div>
-				<div className='main-content__info'>
+				<div className='border' />
+				<div className='main-content__info -bottom'>
 					<div className='main-content__info__left'>
 						<div className='main-content__info__left-commons'>
 							<p>2</p>
@@ -66,6 +71,7 @@ const QuestionContent = () => {
 						</div>
 					</div>
 				</div>
+				<div className='border' />
 				<div className='main-content__info'>
 					<div className='main-content__info__left'>
 						<div className='main-content__info__left-commons'>
@@ -102,6 +108,7 @@ const QuestionContent = () => {
 						</div>
 					</div>
 				</div>
+				<div className='border' />
 			</div>
 			<div className='col-3' style={{ paddingTop: '30px', width: '20%' }}>
 				<RightBanner />

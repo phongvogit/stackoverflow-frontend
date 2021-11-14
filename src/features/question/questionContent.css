@@ -23,10 +23,17 @@
 
 .main-content__info {
 	width: 100%;
-	border-top: 2px solid var(--second-bg);
-	padding: 18px;
 
+	padding: 18px;
 	display: flex;
+}
+
+.border {
+	border-top: 2px solid var(--second-bg);
+}
+
+.border-bottom {
+	border-bottom: 2px solid var(--second-bg);
 }
 
 .main-content__info__left {
@@ -77,11 +84,13 @@
 
 .main-content__info__right > a {
 	color: #328dd2;
+	margin-bottom: 10px;
+	font-size: 18px;
 }
 
 .main-content__info__right > p {
 	color: var(--txt-white);
-	font-size: 0.8rem;
+	font-size: 15px;
 }
 
 .main-content__info__right-labels {

@@ -1,0 +1,31 @@
+.add-question {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.add-question__main {
+	margin: 24px;
+	color: #ffff;
+}
+
+.add-question__main-form {
+	margin-top: 32px;
+	color: #ffff;
+}
+
+.form-input h4,
+p {
+	margin-bottom: 12px;
+}
+
+.form-input > input {
+	margin-bottom: 24px;
+}
+
+.text-area {
+	background-color: var(--main-bg);
+	width: 100%;
+	padding: 12px;
+	color: #ffff;
+	margin-bottom: 24px;
+}

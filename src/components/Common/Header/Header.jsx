@@ -24,7 +24,7 @@ const Header = () => {
 						label={'Login'}
 						href='/login'
 					/>
-					<LinkButton type={'s-btn__second'} label={'Sign up'} />
+					<LinkButton type={'s-btn__second'} label={'Sign up'} href='/signup' />
 				</div>
 			</div>
 		</header>
