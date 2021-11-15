@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LinkButton from '../../components/Common/LinkButton/LinkButton';
 import RightBanner from '../../components/Common/RightBanner/RightBanner';
 import './questionContent.css';
@@ -20,13 +21,19 @@ const QuestionContent = () => {
 					</div>
 					<div className='main-content__header-buttons'>
 						<LinkButton
-							type={'s-btn__second border-0 border-left'}
+							type={'s-btn__second border-r-0 border-r-left'}
 							label={'Votes'}
 						/>
-						<LinkButton type={'s-btn__second border-0'} label={'Views'} />
-						<LinkButton type={'s-btn__second border-0'} label={'Newest'} />
 						<LinkButton
-							type={'s-btn__second border-0 border-right'}
+							type={'s-btn__second border-r-0 border-left-none'}
+							label={'Views'}
+						/>
+						<LinkButton
+							type={'s-btn__second border-r-0 border-left-none'}
+							label={'Newest'}
+						/>
+						<LinkButton
+							type={'s-btn__second border-r-0 border-r-right border-left-none'}
 							label={'Oldest'}
 						/>
 					</div>
@@ -51,7 +58,9 @@ const QuestionContent = () => {
 						</div>
 					</div>
 					<div className='main-content__info__right'>
-						<a href='#'>Is there a unique Android device Id?</a>
+						<Link to='/questions/asdsadj213asdsda'>
+							Is there a unique Android device Id?
+						</Link>
 						<p>
 							Increase your coding productivity with Tabnine’s AI code
 							completions! Tabnine is a free powerful Artificial Intelligence

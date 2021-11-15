@@ -13,8 +13,11 @@
 	color: #ffff;
 }
 
-.form-input h4,
-p {
+.form-input > h4 {
+	margin-bottom: 12px;
+}
+
+.form-input > p {
 	margin-bottom: 12px;
 }
 

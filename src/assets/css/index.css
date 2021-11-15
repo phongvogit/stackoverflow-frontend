@@ -16,6 +16,7 @@
 	--transition-cubic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 	--orange: #f48024;
+	--danger: #ff0e0e;
 }
 
 * {
@@ -63,6 +64,10 @@ input:focus {
 
 .ml-1 {
 	margin-left: 8px;
+}
+
+.mt-1 {
+	margin-top: 8px;
 }
 
 .link {
