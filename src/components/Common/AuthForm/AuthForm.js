@@ -30,14 +30,14 @@ const AuthForm = ({ action = 'Login' }) => {
 
 	return (
 		<div className='auth-form'>
-			<Logo className='logo' />
-			<div className='form-container'>
-				<form className='login-form' onSubmit={onSubmit}>
-					<div className='form-input'>
+			<Logo className='auth-form__logo' />
+			<div className='auth-form__login'>
+				<form onSubmit={onSubmit}>
+					<div className='auth-form__login__input'>
 						<label>Username</label>
 						<input />
 					</div>
-					<div className='form-input'>
+					<div className='auth-form__login__input'>
 						<label>Password</label>
 						<input />
 					</div>
@@ -48,7 +48,7 @@ const AuthForm = ({ action = 'Login' }) => {
 					/>
 				</form>
 
-				<div className='caption'>
+				<div className='auth-form__login__info'>
 					By clicking “{action}”, you agree to our{' '}
 					<a
 						href='https://stackoverflow.com/legal/terms-of-service/public'
@@ -70,7 +70,7 @@ const AuthForm = ({ action = 'Login' }) => {
 					</a>
 				</div>
 			</div>
-			<div className='redirect caption'>
+			<div className='auth-form__redirect'>
 				{action === 'Sign up' ? signUpLink : logInLink}
 			</div>
 		</div>

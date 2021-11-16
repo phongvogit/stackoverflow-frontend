@@ -1,7 +1,7 @@
 import React from 'react';
 import AuthForm from '../../Common/AuthForm/AuthForm';
 import Header from '../../Common/Header/Header';
-import Caption from './components/Caption/Caption/Caption';
+import Caption from './components/Caption/Caption';
 
 import './Signup.css';
 
