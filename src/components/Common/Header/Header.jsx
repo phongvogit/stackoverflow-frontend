@@ -5,26 +5,32 @@ import LinkButton from '../LinkButton/LinkButton';
 import SearchCustom from '../SearchCustom/SearchCustom';
 
 import './header.css';
+import SideNavBar from './SideNavBar/SideNavBar';
 
-const Header = () => {
+const Header = (props) => {
 	return (
-		<header className='header bs'>
-			<div className='header__left'>
-				<Link to='/'>
-					<Logo className='full-logo' />
-				</Link>
-			</div>
-			<div className='header__right'>
-				<div className='header__right__search'>
-					<SearchCustom />
+		<header className='header'>
+			<div className='header__container'>
+				<div className='header__container__mobile'>
+					<SideNavBar {...props} />
 				</div>
-				<div className='header__right__buttons'>
-					<LinkButton
-						type={'s-btn__primary mr-1'}
-						label={'Login'}
-						href='/login'
-					/>
-					<LinkButton type={'s-btn__second'} label={'Sign up'} href='/signup' />
+				<div className='header__container__left'>
+					<Link to='/'>
+						<Logo />
+					</Link>
+				</div>
+				<div className='header__container__right'>
+					<div className='header__container__right__search'>
+						<SearchCustom />
+					</div>
+					<div className='header__container__right__buttons'>
+						<LinkButton
+							type={'btn--primary mr-1'}
+							label={'Login'}
+							href='/login'
+						/>
+						<LinkButton type={'btn--second'} label={'Sign up'} href='/signup' />
+					</div>
 				</div>
 			</div>
 		</header>

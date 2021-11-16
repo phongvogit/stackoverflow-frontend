@@ -11,10 +11,7 @@ const LinkButton = ({ label, type, href, ...props }) => {
 
 	return (
 		<>
-			<button
-				{...props}
-				className={`s-btn ${type}`}
-				onClick={handleButtonClick}>
+			<button {...props} className={`btn ${type}`} onClick={handleButtonClick}>
 				{label}
 			</button>
 		</>

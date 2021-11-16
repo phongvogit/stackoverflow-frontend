@@ -47,11 +47,15 @@ const userDetail = () => {
 									<div className='user-detail-post-number'>
 										<p>1</p>
 									</div>
-									<Link to='/questions/12321'>
-										<div className='user-detail-post-title'>
-											<p>Javascript is the best programming</p>
-										</div>
-									</Link>
+
+									<div className='user-detail-post-title'>
+										<Link to='/questions/12321'>
+											<p>
+												Javascript is the best
+												programmingaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasddddddddddddddddddddddddddddddddddddddddddddddddd
+											</p>
+										</Link>
+									</div>
 
 									<div className='user-detail-post-time'>1 day ago</div>
 								</div>
@@ -59,11 +63,12 @@ const userDetail = () => {
 									<div className='user-detail-post-number'>
 										<p>2</p>
 									</div>
-									<Link to='/questions/12321'>
-										<div className='user-detail-post-title'>
+
+									<div className='user-detail-post-title'>
+										<Link to='/questions/12321'>
 											<p>Javascript is the best programming</p>
-										</div>
-									</Link>
+										</Link>
+									</div>
 
 									<div className='user-detail-post-time'>1 day ago</div>
 								</div>

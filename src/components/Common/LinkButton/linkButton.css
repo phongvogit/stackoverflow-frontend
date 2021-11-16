@@ -1,4 +1,4 @@
-.s-btn {
+.btn {
 	padding: 0.6rem;
 
 	outline: none;
@@ -12,50 +12,50 @@
 	white-space: nowrap;
 }
 
-.s-btn__primary {
+.btn--primary {
 	background-color: hsl(206, 64%, 51%);
 	color: #ffffff;
 }
 
-.s-btn__primary:hover {
+.btn--primary:hover {
 	background-color: hsl(206, 64%, 64%);
 }
 
-.s-btn__second {
+.btn--second {
 	background-color: hsl(205, 14%, 28%);
 	color: hsl(205, 46.5%, 73.5%);
 	border-color: hsl(205, 46.5%, 73.5%);
 }
 
-.s-btn__second:hover {
+.btn--second:hover {
 	background-color: hsl(205, 14%, 40%);
 }
 
-.s-btn__tag {
+.btn--tag {
 	height: 25px;
 	padding: 0px 5px 0px 5px;
 	background-color: hsl(205, 14%, 28%);
 	color: hsl(206, 64%, 64%);
 }
 
-.mr-1 {
-	margin: 6px;
+.btn.mr-1 {
+	margin-right: 0.5rem;
 }
 
-.border-r-0 {
+.btn.border-r-0 {
 	border-radius: 0;
 }
 
-.border-left-none {
+.btn.border-left-none {
 	border-left: none;
 }
 
-.border-r-left {
+.btn.border-r-left {
 	border-top-left-radius: 3px;
 	border-bottom-left-radius: 3px;
 }
 
-.border-r-right {
+.btn.border-r-right {
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
 }

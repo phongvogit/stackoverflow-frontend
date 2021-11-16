@@ -1,14 +1,14 @@
-.signup-layout {
+.signup {
 	width: 100vw;
 	height: 100vh;
 }
 
-.signup-layout__header {
+.signup__header {
 	width: 100%;
 	height: var(--topnav-height);
 }
 
-.signup-layout__content {
+.signup__content {
 	background-color: var(--second-bg);
 	height: calc(100vh - var(--topnav-height) - 80px);
 	display: flex;
@@ -17,7 +17,7 @@
 	padding-bottom: 80px;
 }
 
-.signup-layout__footer {
+.signup__footer {
 	height: 80px;
 	background-color: var(--main-bg);
 }

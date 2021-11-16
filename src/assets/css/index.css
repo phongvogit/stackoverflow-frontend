@@ -11,6 +11,7 @@
 		0 3px 8px hsla(0, 0%, 0%, 0.14);
 
 	--sidebar-width: 180px;
+	--sidebar-tags-width: 180px;
 	--border-radius: 3px;
 	--topnav-height: 63px;
 	--transition-cubic: cubic-bezier(0.175, 0.885, 0.32, 1.275);

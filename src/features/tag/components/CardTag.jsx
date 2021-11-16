@@ -6,7 +6,7 @@ import './cardTag.css';
 const CardTag = () => {
 	return (
 		<div className='card-tag'>
-			<LinkButton type={'s-btn__tag'} label={'javascript'} />
+			<LinkButton type={'btn--tag'} label={'javascript'} />
 			<p className='description'>
 				JavaScript is a lightweight, cross-platform, and interpreted scripting
 				language. It is well-known for the development of web pages, many

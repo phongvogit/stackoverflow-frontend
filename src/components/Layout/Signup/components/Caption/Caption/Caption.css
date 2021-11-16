@@ -1,4 +1,4 @@
-.caption-container {
+.caption {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -9,11 +9,11 @@
 	margin-right: 90px;
 }
 
-.caption-item {
+.caption__item {
 	display: flex;
 	align-items: center;
 }
 
-.grid-cell {
+.caption__item__txt {
 	margin-left: 12px;
 }

@@ -1,14 +1,14 @@
-.login-layout {
+.login {
 	width: 100vw;
 	height: 100vh;
 }
 
-.login-layout__header {
+.login__header {
 	width: 100%;
 	height: var(--topnav-height);
 }
 
-.login-layout__content {
+.login__content {
 	background-color: var(--second-bg);
 	height: calc(100vh - var(--topnav-height) - 80px);
 	display: flex;
@@ -17,7 +17,7 @@
 	padding-bottom: 80px;
 }
 
-.login-layout__footer {
+.login__footer {
 	height: 80px;
 	background-color: var(--main-bg);
 }

@@ -41,7 +41,7 @@ const AddQuestion = () => {
 							</p>
 							<input type='text' placeholder='e.g. (ajax django string)' />
 						</div>
-						<LinkButton type={'s-btn__primary'} label={'Post your question'} />
+						<LinkButton type={'btn--primary'} label={'Post your question'} />
 					</form>
 				</div>
 			</div>

@@ -1,7 +1,5 @@
 import React from 'react';
 import LinkButton from '../../../../components/Common/LinkButton/LinkButton';
-import { ReactComponent as UpVote } from '../../../../assets/images/ArrowUpLg.svg';
-import { ReactComponent as DownVote } from '../../../../assets/images/ArrowDownLg.svg';
 import RightBanner from '../../../../components/Common/RightBanner/RightBanner';
 import Comment from './Comment/Comment';
 
@@ -42,7 +40,7 @@ const DetailQuestion = () => {
 							of VS Code.
 						</p>
 						<div className='main-content__info__right-labels'>
-							<LinkButton type={'s-btn__tag'} label={'javascript'} />
+							<LinkButton type={'btn--tag'} label={'javascript'} />
 						</div>
 						<div className='main-content__info__right-author-container'>
 							<p className='danger'>Delete</p>
@@ -62,7 +60,7 @@ const DetailQuestion = () => {
 						<Comment />
 						<div className='border' />
 						<div>
-							<LinkButton type={'s-btn__primary mt-1'} label={'Add comment'} />
+							<LinkButton type={'btn--primary mt-1'} label={'Add comment'} />
 						</div>
 					</div>
 				</div>
@@ -72,19 +70,19 @@ const DetailQuestion = () => {
 					<h2>Answers</h2>
 					<div className='detail-question__answer__header-buttons'>
 						<LinkButton
-							type={'s-btn__second border-r-0 border-r-left'}
+							type={'btn--second border-r-0 border-r-left'}
 							label={'Votes'}
 						/>
 						<LinkButton
-							type={'s-btn__second border-r-0 border-left-none'}
+							type={'btn--second border-r-0 border-left-none'}
 							label={'Views'}
 						/>
 						<LinkButton
-							type={'s-btn__second border-r-0 border-left-none'}
+							type={'btn--second border-r-0 border-left-none'}
 							label={'Newest'}
 						/>
 						<LinkButton
-							type={'s-btn__second border-r-0 border-r-right border-left-none'}
+							type={'btn--second border-r-0 border-r-right border-left-none'}
 							label={'Oldest'}
 						/>
 					</div>
@@ -114,7 +112,7 @@ const DetailQuestion = () => {
 							of VS Code.
 						</p>
 						<div className='main-content__info__right-labels'>
-							<LinkButton type={'s-btn__tag'} label={'javascript'} />
+							<LinkButton type={'btn--tag'} label={'javascript'} />
 						</div>
 						<div className='main-content__info__right-author-container'>
 							<p className='danger'>Delete</p>
@@ -134,7 +132,7 @@ const DetailQuestion = () => {
 						<Comment />
 						<div className='border' />
 						<div>
-							<LinkButton type={'s-btn__primary mt-1'} label={'Add comment'} />
+							<LinkButton type={'btn--primary'} label={'Add comment'} />
 						</div>
 					</div>
 				</div>

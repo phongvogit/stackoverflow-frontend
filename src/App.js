@@ -1,15 +1,15 @@
 import { Route, Switch } from 'react-router';
-import HomeLayout from './components/Layout/HomeLayout/HomeLayout';
-import LoginLayout from './components/Layout/LoginLayout/LoginLayout';
-import SignupLayout from './components/Layout/SignupLayout/SignupLayout';
+import Home from './components/Layout/Home/Home';
+import Login from './components/Layout/Login/Login';
+import Signup from './components/Layout/Signup/Signup';
 
 function App() {
 	return (
 		<>
 			<Switch>
-				<Route path='/login' component={LoginLayout} exact />
-				<Route path='/signup' component={SignupLayout} exact />
-				<Route component={(props) => <HomeLayout {...props} />} />
+				<Route path='/login' component={Login} exact />
+				<Route path='/signup' component={Signup} exact />
+				<Route component={(props) => <Home {...props} />} />
 			</Switch>
 		</>
 	);

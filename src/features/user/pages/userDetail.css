@@ -111,6 +111,7 @@
 	border-radius: 3px;
 	margin-top: 8px;
 	font-size: 13px;
+	max-width: 600px;
 }
 
 .user-detail-post-number {
@@ -125,15 +126,16 @@
 }
 
 .user-detail-post-title {
-	display: -webkit-box;
-	-webkit-line-clamp: 5;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
+	flex: 1;
+	padding: 0px 8px;
 	color: #007bff;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
 }
 
 .user-detail-post-time {
-	position: absolute;
-	right: 0;
 	margin-right: 10px;
+	white-space: nowrap;
 }

@@ -7,7 +7,7 @@ const Comment = () => {
 	return (
 		<div className='comment'>
 			I need more information -{' '}
-			<LinkButton type={'s-btn__tag'} label={'jaidev'} />{' '}
+			<LinkButton type={'btn--tag'} label={'jaidev'} />{' '}
 			<span className='time'>5 days ago</span>
 		</div>
 	);

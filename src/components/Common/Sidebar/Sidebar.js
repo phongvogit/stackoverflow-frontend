@@ -6,10 +6,9 @@ import './sidebar.css';
 
 const SidebarItem = (props) => {
 	const active = props.active ? 'active' : '';
-
 	return (
-		<div className='sidebar__item'>
-			<div className={`sidebar__item-inner ${active}`}>
+		<div>
+			<div className={`sidebar__item ${active}`}>
 				<i className={props.icon}></i>
 				<span>{props.title}</span>
 			</div>
@@ -17,10 +16,10 @@ const SidebarItem = (props) => {
 	);
 };
 
-const Sidebar = (props) => {
-	console.log(props.location);
-	const activeItem = sidebar_items.findIndex(
-		(item) => item.route === props.location.pathname,
+const Sidebar = ({ location = '/', activeItem = -1 }) => {
+	console.log(activeItem);
+	activeItem = sidebar_items.findIndex(
+		(item) => item.route === location.pathname,
 	);
 
 	return (

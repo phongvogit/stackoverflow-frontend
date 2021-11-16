@@ -42,7 +42,7 @@ const AuthForm = ({ action = 'Login' }) => {
 						<input />
 					</div>
 					<LinkButton
-						type={'s-btn__primary'}
+						type={'btn--primary'}
 						label={action === 'Sign up' ? 'Sign up' : 'Login'}
 						style={{ width: '100%', height: '100%' }}
 					/>
