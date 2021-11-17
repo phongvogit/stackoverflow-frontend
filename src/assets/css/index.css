@@ -74,3 +74,7 @@ input:focus {
 .link {
 	color: #007bff;
 }
+
+hr {
+	border: 1px solid var(--second-bg);
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../../assets/images/LogoMd.svg';
+import InputCustom from '../InputCustom/InputCustom';
 import LinkButton from '../LinkButton/LinkButton';
-import SearchCustom from '../SearchCustom/SearchCustom';
 
-import './header.css';
+import './Header.css';
 import SideNavBar from './SideNavBar/SideNavBar';
 
 const Header = (props) => {
@@ -21,7 +21,7 @@ const Header = (props) => {
 				</div>
 				<div className='header__container__right'>
 					<div className='header__container__right__search'>
-						<SearchCustom />
+						<InputCustom icon='search' placeholder='Search here...' />
 					</div>
 					<div className='header__container__right__buttons'>
 						<LinkButton

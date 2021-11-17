@@ -1,8 +1,7 @@
 import React from 'react';
+import InputCustom from '../../components/Common/InputCustom/InputCustom';
 import RightBanner from '../../components/Common/RightBanner/RightBanner';
-import SearchCustom from '../../components/Common/SearchCustom/SearchCustom';
 import CardTag from './components/CardTag';
-
 import './tagContent.css';
 
 const TagContent = () => {
@@ -17,7 +16,7 @@ const TagContent = () => {
 				</p>
 				<h4 className='quantity'>7 tags</h4>
 				<div className='search-form'>
-					<SearchCustom />
+					<InputCustom icon='search' placeholder='Search here...' />
 				</div>
 
 				<div className='tag-content__info-tags grid-layout-tags'>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../../assets/images/LogoGlyphMd.svg';
 import LinkButton from '../LinkButton/LinkButton';
-import './authForm.css';
+import './AuthForm.css';
 
 const AuthForm = ({ action = 'Login' }) => {
 	const onSubmit = (e) => {

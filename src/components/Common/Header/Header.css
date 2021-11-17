@@ -54,7 +54,7 @@
 	align-items: center;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 776px) {
 	.header__container__left {
 		display: none;
 	}
@@ -63,15 +63,13 @@
 	}
 
 	.header__container {
-		padding: 0px 20px;
+		padding: 8px 20px;
 	}
 
 	.header__container__mobile {
 		display: block;
 	}
-}
 
-@media (max-width: 800px) {
 	.header__container__right__search {
 		display: none;
 	}

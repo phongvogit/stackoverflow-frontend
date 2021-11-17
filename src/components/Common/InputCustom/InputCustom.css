@@ -1,4 +1,4 @@
-.search {
+.input {
 	position: relative;
 	height: 35px;
 
@@ -15,7 +15,7 @@
 	overflow: hidden;
 }
 
-.search > input {
+.input > input {
 	height: 100%;
 	width: 100%;
 	padding: 10px 10px 10px 30px;
@@ -25,11 +25,11 @@
 	color: hsl(210, 4%, 95%);
 }
 
-.search > input:focus {
+.input > input:focus {
 	border: 2px solid hsl(206, 64%, 64%);
 }
 
-.search > i {
+.input > i {
 	position: absolute;
 	font-size: 1.2rem;
 	left: 7px;

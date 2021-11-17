@@ -2,7 +2,7 @@ import React from 'react';
 import LinkButton from '../../../../components/Common/LinkButton/LinkButton';
 import RightBanner from '../../../../components/Common/RightBanner/RightBanner';
 
-import './addQuestion.css';
+import './AddQuestion.css';
 
 const AddQuestion = () => {
 	return (

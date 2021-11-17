@@ -37,12 +37,21 @@
 	padding-left: 12px;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 776px) {
 	.home__main__sidebar {
 		display: none;
 	}
 
 	.home__main__content {
 		width: calc(100vw - var(--sidebar-tags-width));
+	}
+}
+
+@media (max-width: 560px) {
+	.home__main__tags {
+		display: none;
+	}
+	.home__main__content {
+		width: 100vw;
 	}
 }
