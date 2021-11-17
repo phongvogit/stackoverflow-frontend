@@ -46,7 +46,7 @@
 	align-items: center;
 
 	background-color: var(--second-bg);
-	box-shadow: 2px -2px 8px 3px black;
+	box-shadow: -5px -2px 4px 3px black;
 }
 
 .side-nav-bar__logo:hover {

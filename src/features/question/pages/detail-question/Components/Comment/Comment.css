@@ -1,0 +1,10 @@
+.comment {
+	margin: 8px 0px;
+	font-size: 0.9em;
+}
+
+.comment__time {
+	font-size: 0.88em;
+	margin-left: 5px;
+	color: #7e858c;
+}

@@ -10,7 +10,7 @@
 
 .home__main {
 	width: 100%;
-	height: calc(100vh - var(--topnav-height));
+	min-height: calc(100vh - var(--topnav-height));
 
 	display: flex;
 }

@@ -12,8 +12,12 @@ const Signup = () => {
 				<Header />
 			</div>
 			<div className='signup__content'>
-				<Caption />
-				<AuthForm action='Sign up' />
+				<div className='signup__caption'>
+					<Caption />
+				</div>
+				<div className='signup__form'>
+					<AuthForm action='Sign up' />
+				</div>
 			</div>
 			<div className='signup__footer'></div>
 		</div>

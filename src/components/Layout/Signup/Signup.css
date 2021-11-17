@@ -1,6 +1,7 @@
 .signup {
 	width: 100vw;
 	height: 100vh;
+	color: var(--txt-color);
 }
 
 .signup__header {
@@ -14,10 +15,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding-bottom: 80px;
 }
 
 .signup__footer {
 	height: 80px;
 	background-color: var(--main-bg);
+}
+
+@media (max-width: 830px) {
+	.signup__caption {
+		display: none;
+	}
 }
