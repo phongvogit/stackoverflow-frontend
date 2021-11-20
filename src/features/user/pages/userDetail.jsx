@@ -1,8 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LinkButton from '../../../components/Common/LinkButton/LinkButton';
-import RightBanner from '../../../components/Common/RightBanner/RightBanner';
-
 import './userDetail.css';
 
 const userDetail = () => {
@@ -11,7 +8,10 @@ const userDetail = () => {
 			<div className='user-detail__title'>Profile</div>
 			<div className='user-detail__profile'>
 				<div className='user-detail__profile__avatar'>
-					<img src='https://secure.gravatar.com/avatar/5f4cded9bced9500173faf1a?s=164&d=identicon' />
+					<img
+						src='https://secure.gravatar.com/avatar/5f4cded9bced9500173faf1a?s=164&d=identicon'
+						alt='avatar'
+					/>
 				</div>
 				<div className='user-detail__profile__info'>
 					<h3>mayank</h3>

@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import GroupButtons from '../../components/Common/GroupButtons/GroupButtons';
 import LinkButton from '../../components/Common/LinkButton/LinkButton';
 import PaginationCustom from '../../components/Common/Pagination/Pagination';
+import { selectIsLoggedIn } from '../auth/authSlice';
 import QuestionContent from './components/question-content/QuestionContent';
 import './Question.css';
 import {
@@ -17,6 +19,8 @@ const Question = () => {
 	const questionList = useAppSelector(selectQuestionList);
 	const pagination = useAppSelector(selectQuestionPagination);
 	const filter = useAppSelector(selectQuestionFilter);
+	const isLoggedIn = useAppSelector(selectIsLoggedIn);
+	const history = useHistory();
 
 	useEffect(() => {
 		dispatch(questionActions.fetchQuestionList(filter));
@@ -31,6 +35,14 @@ const Question = () => {
 		);
 	};
 
+	const handleAddQuestion = () => {
+		if (isLoggedIn) {
+			history.push('/addQuestion');
+		} else {
+			history.push('/login', { from: window.location.pathname });
+		}
+	};
+
 	return (
 		<div className='question'>
 			<div className='question__header'>
@@ -39,7 +51,7 @@ const Question = () => {
 					<LinkButton
 						type={'btn--primary'}
 						label={'Ask Question'}
-						href='addQuestion'
+						handleClick={handleAddQuestion}
 					/>
 				</div>
 				<div className='question__header__buttons'>

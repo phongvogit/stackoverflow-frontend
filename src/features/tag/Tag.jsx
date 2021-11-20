@@ -1,6 +1,5 @@
 import React from 'react';
 import InputCustom from '../../components/Common/InputCustom/InputCustom';
-import RightBanner from '../../components/Common/RightBanner/RightBanner';
 import CardTag from './components/CardTag';
 import './Tag.css';
 

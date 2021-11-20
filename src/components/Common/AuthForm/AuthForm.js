@@ -6,20 +6,7 @@ import { authActions } from '../../../features/auth/authSlice';
 import LinkButton from '../LinkButton/LinkButton';
 import './AuthForm.css';
 
-const AuthForm = ({ action = 'Login' }) => {
-	const dispatch = useAppDispatch();
-
-	const onSubmit = e => {
-		e.preventDefault();
-		console.log('Hello');
-		dispatch(
-			authActions.login({
-				username: '',
-				password: '',
-			}),
-		);
-	};
-
+const AuthForm = ({ action = 'Login', onSubmit }) => {
 	const signUpLink = (
 		<>
 			Already have an account?{' '}

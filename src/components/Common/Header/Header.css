@@ -58,6 +58,12 @@
 	align-items: center;
 }
 
+.header__container__right__buttons > img {
+	height: 35px;
+	width: 35px;
+	margin-right: 8px;
+}
+
 @media (max-width: 776px) {
 	.header__container__left {
 		display: none;

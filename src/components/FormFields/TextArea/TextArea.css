@@ -1,0 +1,16 @@
+.text-area {
+	background-color: var(--main-bg);
+	width: 100%;
+	padding: 12px;
+	color: #ffff;
+}
+
+.text-area:focus {
+	outline: none !important;
+	border: 2px solid hsl(206, 64%, 64%) !important;
+}
+
+.text-area__errors {
+	color: red;
+	margin: 8px 0;
+}

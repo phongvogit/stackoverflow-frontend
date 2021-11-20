@@ -43,7 +43,10 @@ const Content = () => {
 						<div className='content__info__author'>
 							<p>asked 3 hours ago</p>
 							<div className='content__info__author__avatar'>
-								<img src='https://secure.gravatar.com/avatar/5f4cded9bced9500173faf1a?s=32&d=identicon' />
+								<img
+									src='https://secure.gravatar.com/avatar/5f4cded9bced9500173faf1a?s=32&d=identicon'
+									alt='avatar'
+								/>
 								<span>Phong Vo</span>
 							</div>
 						</div>
