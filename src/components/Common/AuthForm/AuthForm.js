@@ -1,13 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAppDispatch } from '../../../app/hooks';
 import { ReactComponent as Logo } from '../../../assets/images/LogoGlyphMd.svg';
+import { authActions } from '../../../features/auth/authSlice';
 import LinkButton from '../LinkButton/LinkButton';
 import './AuthForm.css';
 
 const AuthForm = ({ action = 'Login' }) => {
-	const onSubmit = (e) => {
+	const dispatch = useAppDispatch();
+
+	const onSubmit = e => {
 		e.preventDefault();
 		console.log('Hello');
+		dispatch(
+			authActions.login({
+				username: '',
+				password: '',
+			}),
+		);
 	};
 
 	const signUpLink = (
