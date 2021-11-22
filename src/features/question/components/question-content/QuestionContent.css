@@ -71,6 +71,10 @@
 	flex-wrap: wrap;
 }
 
+.question-content__right__labels > button {
+	margin-right: 5px;
+}
+
 .question-content__right__author {
 	width: 90%;
 	display: flex;

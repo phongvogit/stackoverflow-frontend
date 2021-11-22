@@ -12,6 +12,20 @@ function* fetchQuestionList(action) {
 	}
 }
 
+function* fetchQuestionListByTag(action) {
+	try {
+		const response = yield call(questionApi.getAllByTags, action.payload);
+		yield put(questionActions.fetchQuestionListSuccess(response));
+	} catch (error) {
+		console.log('Failed to fetch question list', error);
+		yield put(questionActions.fetchQuestionListFailed());
+	}
+}
+
 export default function* questionSaga() {
 	yield takeLatest(questionActions.fetchQuestionList.type, fetchQuestionList);
+	yield takeLatest(
+		questionActions.fetchQuestionListByTag.type,
+		fetchQuestionListByTag,
+	);
 }

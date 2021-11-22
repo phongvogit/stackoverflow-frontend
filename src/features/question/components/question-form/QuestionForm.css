@@ -7,17 +7,6 @@
 
 .question-form__input {
 	margin-bottom: 20px;
-	font-size: 1em;
-}
-
-.question-form__input p {
-	margin-bottom: 8px;
-	font-size: 0.9em;
-}
-
-.question-form__input > h4 {
-	color: #ffffff;
-	margin-bottom: 8px;
 }
 
 .question-form__btn {

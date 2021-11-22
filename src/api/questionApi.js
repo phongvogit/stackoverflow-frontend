@@ -5,6 +5,12 @@ const questionApi = {
 		const url = '/questions';
 		return axiosClient.get(url, { params });
 	},
+	getAllByTags(payload) {
+		const url = '/questions/tags/search';
+		const tags = payload.tags;
+		const params = payload.newFilter;
+		return axiosClient.post(url, { tags }, { params });
+	},
 	add(body) {
 		const url = '/questions';
 		return axiosClient.post(url, body);

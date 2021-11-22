@@ -1,20 +1,24 @@
+import { formatDistanceToNowStrict } from 'date-fns';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './cardUser.css';
 
-const CardUser = () => {
+const CardUser = ({ profilePhoto, username, question_doc, created }) => {
 	return (
 		<Link className='card-user' to='/users/123'>
 			<div className='card-user-avatar'>
-				<img
-					src='https://secure.gravatar.com/avatar/5f4cded9bced9500173faf1a?s=164&d=identicon'
-					alt='avatar'
-				/>
+				<img src={profilePhoto} alt='avatar' />
 			</div>
 			<div className='card-user__info'>
-				<p className='card-user__info-name'>mayank</p>
-				<p className='card-user__info-question'>1 question</p>
-				<p className='card-user__info-time'>5 days ago</p>
+				<p className='card-user__info-name'>{username}</p>
+				<p className='card-user__info-question'>
+					{question_doc.length} question
+				</p>
+				<p className='card-user__info-time'>
+					{formatDistanceToNowStrict(new Date(created), {
+						addSuffix: true,
+					})}
+				</p>
 			</div>
 		</Link>
 	);

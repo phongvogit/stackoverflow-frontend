@@ -21,6 +21,9 @@ const questionSlice = createSlice({
 		fetchQuestionList(state, action) {
 			state.loading = true;
 		},
+		fetchQuestionListByTag(state, action) {
+			state.loading = true;
+		},
 		fetchQuestionListSuccess(state, action) {
 			state.list = action.payload.data;
 			state.pagination = action.payload.pagination;

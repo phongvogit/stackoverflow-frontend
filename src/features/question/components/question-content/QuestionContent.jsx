@@ -6,8 +6,8 @@ import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict';
 import './QuestionContent.css';
 
 const QuestionContent = ({ question }) => {
-	const { score, title, comments, answers, author_doc, created } = question;
-	console.log(answers);
+	const { score, title, comments, tags, views, answers, author_doc, created } =
+		question;
 	return (
 		<div className='question-content'>
 			<div className='question-content__left'>
@@ -23,13 +23,15 @@ const QuestionContent = ({ question }) => {
 					<p>{comments.length}</p>
 					<span>comments</span>
 				</div>
-				<div className='main-content__info__left__views'>0 views</div>
+				<div className='main-content__info__left__views'>{views} views</div>
 			</div>
 			<div className='question-content__right'>
 				<Link to='/questions/asdsadj213asdsda'>{title}</Link>
 				<p>{title}</p>
 				<div className='question-content__right__labels'>
-					<LinkButton type={'btn--tag'} label={'javascript'} />
+					{tags.map(tag => (
+						<LinkButton type={'btn--tag'} label={tag} />
+					))}
 				</div>
 				<div className='question-content__right__author'>
 					<div>

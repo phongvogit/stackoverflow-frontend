@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import GroupButtons from '../../components/Common/GroupButtons/GroupButtons';
 import LinkButton from '../../components/Common/LinkButton/LinkButton';
 import PaginationCustom from '../../components/Common/Pagination/Pagination';
+import { checkSortType } from '../../utils/common';
 import { selectIsLoggedIn } from '../auth/authSlice';
 import QuestionContent from './components/question-content/QuestionContent';
 import './Question.css';
@@ -16,6 +17,7 @@ import {
 
 const Question = () => {
 	const dispatch = useAppDispatch();
+	const [questionSortType, setQuestionSortType] = useState('Votes');
 	const questionList = useAppSelector(selectQuestionList);
 	const pagination = useAppSelector(selectQuestionPagination);
 	const filter = useAppSelector(selectQuestionFilter);
@@ -43,6 +45,18 @@ const Question = () => {
 		}
 	};
 
+	const handleQuestionSortType = sortType => {
+		setQuestionSortType(sortType);
+		const sort = checkSortType(sortType);
+		dispatch(
+			questionActions.setFilter({
+				...filter,
+				_page: 1,
+				_sortType: sort,
+			}),
+		);
+	};
+
 	return (
 		<div className='question'>
 			<div className='question__header'>
@@ -55,14 +69,18 @@ const Question = () => {
 					/>
 				</div>
 				<div className='question__header__buttons'>
-					<GroupButtons labels={['Votes', 'Views', 'Newest', 'Oldest']} />
+					<GroupButtons
+						labels={['Votes', 'Views', 'Newest', 'Oldest']}
+						setSelected={handleQuestionSortType}
+						selected={questionSortType}
+					/>
 				</div>
 			</div>
 
 			<hr />
 			{questionList.map(question => (
 				<>
-					<QuestionContent question={question} />
+					<QuestionContent key={question._id} question={question} />
 					<hr />
 				</>
 			))}

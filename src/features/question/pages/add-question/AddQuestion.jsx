@@ -16,7 +16,7 @@ const AddQuestion = () => {
 	const initialValues = {
 		title: '',
 		text: '',
-		tags: '',
+		tags: [],
 	};
 
 	return (

@@ -6,6 +6,7 @@ import {
 	authActions,
 	selectCurrentUser,
 } from '../../../features/auth/authSlice';
+import { InputField } from '../../FormFields/InputField/InputField';
 import InputCustom from '../InputCustom/InputCustom';
 import LinkButton from '../LinkButton/LinkButton';
 import './Header.css';
@@ -41,7 +42,7 @@ const Header = props => {
 				</div>
 				<div className='header__container__right'>
 					<div className='header__container__right__search'>
-						<InputCustom icon='search' placeholder='Search here...' />
+						<InputField icon='search' placeholder='Search here...' />
 					</div>
 					<div className='header__container__right__buttons'>
 						{currentUser ? (

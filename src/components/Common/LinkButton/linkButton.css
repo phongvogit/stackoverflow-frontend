@@ -33,6 +33,7 @@
 
 .btn--tag {
 	height: 25px;
+	min-width: 40px;
 	padding: 0px 5px 0px 5px;
 	background-color: hsl(205, 14%, 28%);
 	color: hsl(206, 64%, 64%);

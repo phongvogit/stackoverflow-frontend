@@ -6,6 +6,7 @@ import { InputField } from '../../../../components/FormFields/InputField/InputFi
 import { TextArea } from '../../../../components/FormFields/TextArea/TextArea';
 import * as yup from 'yup';
 import './QuestionForm.css';
+import FormInput from '../../../../components/FormFields/FormInput/FormInput';
 
 const schema = yup
 	.object({
@@ -19,12 +20,11 @@ const schema = yup
 			.required('Text is missing')
 			.max(150, 'Text cannot be longer than 150 characters.')
 			.min(15, 'Text must be at least 15 characters.'),
-		tags: yup.string().required('Tags is missing'),
-		// tags: yup
-		// 	.array()
-		// 	.required('Please enter at least one tag.')
-		// 	.max(5, 'Please enter no more than 5 tags.')
-		// 	.of(Yup.string().max(15, 'Tag cannot be longer than 15 characters. ')),
+		tags: yup
+			.array()
+			.required('Please enter at least one tag.')
+			.max(5, 'Please enter no more than 5 tags.')
+			.of(yup.string().max(15, 'Tag cannot be longer than 15 characters. ')),
 	})
 	.required();
 
@@ -32,17 +32,16 @@ const QuestionForm = ({ initialValues, onSubmit }) => {
 	const {
 		register,
 		handleSubmit,
+		setValue,
+		watch,
 		formState: { isSubmitting, errors },
 	} = useForm({
 		defaultValues: initialValues,
 		resolver: yupResolver(schema),
 	});
 
-	console.log(errors);
 	const handleFormSubmit = async formValues => {
 		try {
-			//Clear previous submission error
-			console.log('formValues: ', formValues);
 			await onSubmit(formValues);
 		} catch (error) {
 			console.log(error, 'error');
@@ -52,39 +51,34 @@ const QuestionForm = ({ initialValues, onSubmit }) => {
 	return (
 		<form className='question-form' onSubmit={handleSubmit(handleFormSubmit)}>
 			<div className='question-form__input'>
-				<h4>Title</h4>
-				<p>
-					Be specific and imagine you're asking a question to another person
-				</p>
 				<InputField
+					label='Title'
+					inputInfo="Be specific and imagine you're asking a question to another person"
 					inputProps={register('title')}
 					placeholder='e.g. Is there an R function for finding the index of an element in a vector?'
 					error={Boolean(errors.title) ? errors.title : null}
 				/>
 			</div>
 			<div className='question-form__input'>
-				<h4>Body</h4>
-				<p>
-					Include all the information someone would need to answer your question
-				</p>
 				<TextArea
+					label='Body'
+					inputInfo='Include all the information someone would need to answer your question'
 					inputProps={register('text')}
 					placeholder='Enter body with minimum 30 characters'
 					error={Boolean(errors.text) ? errors.text : null}
 				/>
 			</div>
 			<div className='question-form__input'>
-				<h4>Tag Name</h4>
-				<p>
-					Be specific and imagine you're asking a question to another person
-				</p>
-				<InputField
-					inputProps={register('tags')}
-					placeholder='e.g. (ajax django string)'
+				<FormInput
+					label='Tags'
+					name='tags'
+					type='text'
+					value={watch('tags')}
+					inputInfo="Be specific and imagine you're asking a question to another person"
+					onChange={e => setValue('tags', e, true)}
 					error={Boolean(errors.tags) ? errors.tags : null}
 				/>
 			</div>
-			{}
 			<div className='question-form__btn'>
 				<LinkButton type={'btn--primary'} label={'Post your question'} />
 			</div>

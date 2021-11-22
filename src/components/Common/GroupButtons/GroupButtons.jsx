@@ -1,7 +1,7 @@
 import React from 'react';
 import LinkButton from '../LinkButton/LinkButton';
 
-const GroupButtons = ({ labels }) => {
+const GroupButtons = ({ labels, selected, setSelected }) => {
 	return (
 		<>
 			{labels.map((label, idx) => {
@@ -15,7 +15,16 @@ const GroupButtons = ({ labels }) => {
 					}
 				}
 
-				return <LinkButton type={classes.join(' ')} label={label} />;
+				return (
+					<LinkButton
+						key={label}
+						type={`${classes.join(' ')} ${
+							selected === label ? ' active ' : ''
+						}`}
+						handleClick={() => setSelected(label)}
+						label={label}
+					/>
+				);
 			})}
 		</>
 	);

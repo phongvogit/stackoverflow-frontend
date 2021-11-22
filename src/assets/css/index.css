@@ -79,3 +79,7 @@ input:focus {
 hr {
 	border: 1px solid var(--second-bg);
 }
+
+.active {
+	opacity: 0.8;
+}
