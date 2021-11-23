@@ -52,12 +52,6 @@
 	align-items: center;
 }
 
-.content__info__author__wrapper .delete {
-	color: var(--danger);
-	cursor: pointer;
-	font-size: 0.8em;
-}
-
 .content__info__author {
 	margin-bottom: 12px;
 	background-color: #3c4951;

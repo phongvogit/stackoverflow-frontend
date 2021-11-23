@@ -19,6 +19,10 @@ const questionApi = {
 		const url = '/questions';
 		return axiosClient.post(url, body);
 	},
+	removeQuestion(id) {
+		const url = `/question/${id}`;
+		return axiosClient.delete(url);
+	},
 };
 
 export default questionApi;

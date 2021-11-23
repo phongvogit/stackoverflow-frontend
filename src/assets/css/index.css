@@ -83,3 +83,9 @@ hr {
 .active {
 	opacity: 0.8;
 }
+
+.delete {
+	color: var(--danger);
+	cursor: pointer;
+	font-size: 0.8em;
+}

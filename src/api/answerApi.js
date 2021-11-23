@@ -5,6 +5,10 @@ const answerApi = {
 		const url = `/answer/${id}`;
 		return axiosClient.post(url, values);
 	},
+	removeAnswer(questionId, answerId) {
+		const url = `/answer/${questionId}/${answerId}`;
+		return axiosClient.delete(url);
+	},
 };
 
 export default answerApi;

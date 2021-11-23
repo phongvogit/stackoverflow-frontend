@@ -1,7 +1,13 @@
 import { formatDistanceToNowStrict } from 'date-fns';
 import React from 'react';
+import { useHistory } from 'react-router';
+import answerApi from '../../../../../../api/answerApi';
+import commentApi from '../../../../../../api/commentApi';
+import questionApi from '../../../../../../api/questionApi';
+import { useAppSelector } from '../../../../../../app/hooks';
 import Arrow from '../../../../../../components/Common/Arrow/Arrow';
 import LinkButton from '../../../../../../components/Common/LinkButton/LinkButton';
+import { selectCurrentUser } from '../../../../../auth/authSlice';
 import Comment from '../Comment/Comment';
 import CommentForm from '../CommentForm/CommentForm';
 import QuestionVote from '../QuestionVote/QuestionVote';
@@ -9,6 +15,27 @@ import './Content.css';
 
 const Content = ({ data, questionId, answerId, setQuestion }) => {
 	const { score, comments, tags, author, text, votes } = data;
+	const currentUser = useAppSelector(selectCurrentUser);
+	const history = useHistory();
+
+	const handleDeleteQuestion = async () => {
+		const res = window.confirm(
+			`Are you sure delete your ${answerId ? 'answer' : 'question'}?`,
+		);
+		if (res) {
+			try {
+				if (answerId) {
+					const data = await answerApi.removeAnswer(questionId, answerId);
+					setQuestion(data);
+				} else {
+					await questionApi.removeQuestion(questionId);
+					history.push('/');
+				}
+			} catch (error) {
+				console.log('Delete Failed!');
+			}
+		}
+	};
 
 	return (
 		<div className='content'>
@@ -36,7 +63,12 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 							))}
 					</div>
 					<div className='content__info__author__wrapper'>
-						<p className='delete'>Delete</p>
+						{(currentUser?.username === author?.username ||
+							currentUser?.role === 'admin') && (
+							<a className='delete' onClick={() => handleDeleteQuestion()}>
+								Delete
+							</a>
+						)}
 						<div className='content__info__author'>
 							<p>
 								Asked{' '}
@@ -60,7 +92,14 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 					comments.map(comment => (
 						<>
 							<hr />
-							<Comment key={comment} data={comment} />
+							<Comment
+								setQuestion={setQuestion}
+								key={comment}
+								data={comment}
+								answerId={answerId}
+								questionId={questionId}
+								commentId={comment._id}
+							/>
 						</>
 					))}
 				<hr />
@@ -70,7 +109,6 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 						setQuestion={setQuestion}
 						answerId={answerId}
 					/>
-					{/* <LinkButton type={'btn--primary mt-1'} label={'Add comment'} /> */}
 				</div>
 			</div>
 		</div>
