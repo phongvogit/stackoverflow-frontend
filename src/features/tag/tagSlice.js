@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
 	loading: false,
 	list: [],
-	listPopular: [],
 	filter: {
 		_page: 1,
 		_limit: 5,
@@ -31,18 +30,6 @@ const tagSlice = createSlice({
 			state.loading = false;
 		},
 
-		fetchPopularTagList(state, action) {
-			state.loading = true;
-		},
-		fetchPopularTagListSuccess(state, action) {
-			state.listPopular = action.payload.data;
-			state.pagination = action.payload.pagination;
-			state.loading = false;
-		},
-		fetchPopularTagListFailed(state) {
-			state.loading = false;
-		},
-
 		setFilter(state, action) {
 			state.filter = action.payload;
 		},
@@ -55,7 +42,6 @@ const tagSlice = createSlice({
 export const tagActions = tagSlice.actions;
 //Selectors
 export const selectTagList = state => state.tag.list;
-export const selectPopularTagList = state => state.tag.listPopular;
 export const selectTagPagination = state => state.tag.pagination;
 export const selectTagFilter = state => state.tag.filter;
 

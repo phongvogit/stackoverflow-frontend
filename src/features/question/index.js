@@ -25,7 +25,13 @@ const Question = () => {
 	const history = useHistory();
 
 	useEffect(() => {
-		dispatch(questionActions.fetchQuestionList(filter));
+		const currentUrl = history.location.pathname;
+		if (currentUrl.includes('/questions/tags')) {
+			const tags = [currentUrl.split('/').pop()];
+			dispatch(questionActions.fetchQuestionListByTag({ tags, filter }));
+		} else {
+			dispatch(questionActions.fetchQuestionList(filter));
+		}
 	}, [dispatch, filter]);
 
 	const handlePageChange = ({ selected }) => {
@@ -57,6 +63,15 @@ const Question = () => {
 		);
 	};
 
+	const handleSelectedTag = async selectedTag => {
+		const newFilter = {
+			...filter,
+			_page: 1,
+		};
+		await dispatch(questionActions.setFilter(newFilter));
+		history.push(`/questions/tags/${selectedTag}`);
+	};
+
 	return (
 		<div className='question'>
 			<div className='question__header'>
@@ -80,7 +95,11 @@ const Question = () => {
 			<hr />
 			{questionList.map(question => (
 				<>
-					<QuestionContent key={question._id} question={question} />
+					<QuestionContent
+						key={question._id}
+						question={question}
+						handleSelectedTag={handleSelectedTag}
+					/>
 					<hr />
 				</>
 			))}

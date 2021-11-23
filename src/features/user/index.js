@@ -44,7 +44,7 @@ const User = () => {
 	return (
 		<div className='user'>
 			<h2>Users</h2>
-			<h4>7 users</h4>
+			<h4>{userList.length} users</h4>
 			<div className='user__search'>
 				<InputField
 					icon='search'

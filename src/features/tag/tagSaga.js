@@ -12,16 +12,6 @@ function* fetchTagList(action) {
 	}
 }
 
-function* fetchPopularTagList(action) {
-	try {
-		const response = yield call(tagApi.getAll, action.payload);
-		yield put(tagActions.fetchPopularTagListSuccess(response));
-	} catch (error) {
-		console.log('Failed to fetch tag list', error);
-		yield put(tagActions.fetchPopularTagListFailed());
-	}
-}
-
 function* handleSearchDebounce(action) {
 	try {
 		const response = yield call(tagApi.getTagsByName, action.payload);
@@ -34,7 +24,6 @@ function* handleSearchDebounce(action) {
 
 export default function* tagSaga() {
 	yield takeLatest(tagActions.fetchTagList.type, fetchTagList);
-	yield takeLatest(tagActions.fetchPopularTagList.type, fetchPopularTagList);
 	yield debounce(
 		500,
 		tagActions.setFilterWithDebounce.type,

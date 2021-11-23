@@ -1,6 +1,12 @@
 .comment {
 	margin: 8px 0px;
 	font-size: 0.9em;
+	display: inline-block;
+}
+
+.comment > p {
+	display: inline-block;
+	word-break: break-word;
 }
 
 .comment__time {

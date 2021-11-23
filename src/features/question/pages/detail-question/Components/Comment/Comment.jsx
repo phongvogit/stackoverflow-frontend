@@ -1,14 +1,23 @@
+import { format } from 'date-fns';
 import React from 'react';
 import LinkButton from '../../../../../../components/Common/LinkButton/LinkButton';
 
 import './Comment.css';
 
-const Comment = () => {
+const Comment = ({ data }) => {
+	const { body, author, created } = data;
 	return (
 		<div className='comment'>
-			I need more information -{' '}
-			<LinkButton type={'btn--tag'} label={'jaidev'} />{' '}
-			<span className='comment__time'>5 days ago</span>
+			<p>
+				{body} {' – '}
+				<LinkButton
+					type={'btn--tag'}
+					label={Boolean(author) ? author.username : ''}
+				/>{' '}
+				<span className='comment__time'>
+					{format(new Date(created), "MMM dd'`'yy 'at' k':'mm")}
+				</span>
+			</p>
 		</div>
 	);
 };

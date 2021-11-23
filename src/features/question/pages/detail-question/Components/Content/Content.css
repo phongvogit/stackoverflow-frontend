@@ -1,6 +1,5 @@
 .content {
 	display: flex;
-	align-items: flex-start;
 }
 
 .content__vote {
@@ -19,20 +18,23 @@
 	margin-bottom: 10px;
 }
 
+.content__info {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
 .content__info__wrapper {
 	width: 90%;
 	margin: 10px;
-}
-
-.content__info__wrapper > h5 {
-	font-size: 1.2em;
-	margin-bottom: 10px;
-	color: var(--link);
+	display: flex;
+	flex-direction: column;
 }
 
 .content__info__wrapper > p {
 	font-size: 0.98em;
 	margin-bottom: 10px;
+	white-space: normal !important;
 }
 
 .content__info__labels {
@@ -70,6 +72,11 @@
 	justify-content: flex-start;
 	align-items: center;
 	margin-top: 5px;
+}
+
+.content__info__author__avatar > img {
+	height: 36px;
+	width: 36px;
 }
 
 .content__info__author__avatar > span {

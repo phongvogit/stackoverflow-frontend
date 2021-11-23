@@ -1,13 +1,21 @@
+import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LinkButton from '../../../../components/Common/LinkButton/LinkButton';
-import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict';
-
 import './QuestionContent.css';
 
-const QuestionContent = ({ question }) => {
-	const { score, title, comments, tags, views, answers, author_doc, created } =
-		question;
+const QuestionContent = ({ question, handleSelectedTag }) => {
+	const {
+		score,
+		title,
+		comments,
+		tags,
+		views,
+		answers,
+		author_doc,
+		created,
+		_id,
+	} = question;
 	return (
 		<div className='question-content'>
 			<div className='question-content__left'>
@@ -26,11 +34,15 @@ const QuestionContent = ({ question }) => {
 				<div className='main-content__info__left__views'>{views} views</div>
 			</div>
 			<div className='question-content__right'>
-				<Link to='/questions/asdsadj213asdsda'>{title}</Link>
+				<Link to={`/question/${_id}`}>{title}</Link>
 				<p>{title}</p>
 				<div className='question-content__right__labels'>
 					{tags.map(tag => (
-						<LinkButton type={'btn--tag'} label={tag} />
+						<LinkButton
+							type={'btn--tag'}
+							label={tag}
+							handleClick={() => handleSelectedTag(tag)}
+						/>
 					))}
 				</div>
 				<div className='question-content__right__author'>

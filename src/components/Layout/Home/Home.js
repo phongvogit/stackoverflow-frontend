@@ -1,7 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import tagApi from '../../../api/tagApi';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
-import { questionActions } from '../../../features/question/questionSlice';
+import {
+	questionActions,
+	selectQuestionFilter,
+} from '../../../features/question/questionSlice';
 import {
 	selectPopularTagList,
 	selectTagFilter,
@@ -16,26 +20,28 @@ import Sidebar from '../../Common/Sidebar/Sidebar';
 import './Home.css';
 
 const Home = props => {
+	const [listPopularTags, setListPopularTags] = useState([]);
 	const history = useHistory();
 	const dispatch = useAppDispatch();
-	const tagPopularList = useAppSelector(selectPopularTagList);
 	const filter = useAppSelector(selectTagFilter);
 
 	useEffect(() => {
-		dispatch(
-			tagActions.fetchPopularTagList({
-				_limit: 7,
-			}),
-		);
-	}, [dispatch]);
+		(async () => {
+			try {
+				const listTags = await tagApi.getAll({ _limit: 8 });
+				setListPopularTags(listTags.data);
+			} catch (error) {
+				console.log('Failed to fetch tagList ', error);
+			}
+		})();
+	}, []);
 
 	const handleSelectedTag = async selectedTag => {
-		const tags = [selectedTag];
 		const newFilter = {
 			...filter,
 			_page: 1,
 		};
-		await dispatch(questionActions.fetchQuestionListByTag({ newFilter, tags }));
+		await dispatch(questionActions.setFilter(newFilter));
 		history.push(`/questions/tags/${selectedTag}`);
 	};
 
@@ -53,7 +59,7 @@ const Home = props => {
 				</div>
 				<div className='home__main__tags'>
 					<RightBanner
-						tags={tagPopularList}
+						tags={listPopularTags}
 						setSelectedTag={handleSelectedTag}
 					/>
 				</div>

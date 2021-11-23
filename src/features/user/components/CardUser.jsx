@@ -1,7 +1,7 @@
 import { formatDistanceToNowStrict } from 'date-fns';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './cardUser.css';
+import './CardUser.css';
 
 const CardUser = ({ profilePhoto, username, question_doc, created }) => {
 	return (

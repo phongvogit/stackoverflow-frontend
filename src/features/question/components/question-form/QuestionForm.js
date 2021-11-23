@@ -34,6 +34,7 @@ const QuestionForm = ({ initialValues, onSubmit }) => {
 		handleSubmit,
 		setValue,
 		watch,
+		resetField,
 		formState: { isSubmitting, errors },
 	} = useForm({
 		defaultValues: initialValues,

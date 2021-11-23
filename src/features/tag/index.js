@@ -15,7 +15,6 @@ import {
 const Tag = () => {
 	const dispatch = useDispatch();
 	const pagination = useAppSelector(selectTagPagination);
-	console.log(pagination, 'pagination');
 	const filter = useAppSelector(selectTagFilter);
 	const tagList = useAppSelector(selectTagList);
 
@@ -54,7 +53,7 @@ const Tag = () => {
 				similar questions. Using the right tags makes it easier for others to
 				find and answer your question
 			</p>
-			<h4>7 tags</h4>
+			<h4>{tagList.length} tags</h4>
 			<div className='tag-content__search'>
 				<InputField
 					icon='search'

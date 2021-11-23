@@ -8,8 +8,12 @@ const questionApi = {
 	getAllByTags(payload) {
 		const url = '/questions/tags/search';
 		const tags = payload.tags;
-		const params = payload.newFilter;
+		const params = payload.filter;
 		return axiosClient.post(url, { tags }, { params });
+	},
+	getById(id) {
+		const url = `/question/${id}`;
+		return axiosClient.get(url);
 	},
 	add(body) {
 		const url = '/questions';
