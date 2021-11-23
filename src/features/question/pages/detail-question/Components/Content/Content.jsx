@@ -4,26 +4,21 @@ import Arrow from '../../../../../../components/Common/Arrow/Arrow';
 import LinkButton from '../../../../../../components/Common/LinkButton/LinkButton';
 import Comment from '../Comment/Comment';
 import CommentForm from '../CommentForm/CommentForm';
+import QuestionVote from '../QuestionVote/QuestionVote';
 import './Content.css';
 
 const Content = ({ data, questionId, answerId, setQuestion }) => {
-	const { score, comments, tags, author, text } = data;
+	const { score, comments, tags, author, text, votes } = data;
 
 	return (
 		<div className='content'>
-			<div className='content__vote'>
-				<button
-					className='content__vote-up'
-					title='This answer is useful (click again to undo)'>
-					<Arrow type='up' active />
-				</button>
-				<div className='content__vote-count'>{score}</div>
-				<button
-					className='content__vote-down'
-					title='This answer is not useful (click again to undo)'>
-					<Arrow type='down' />
-				</button>
-			</div>
+			<QuestionVote
+				score={score}
+				votes={votes}
+				questionId={questionId}
+				answerId={answerId}
+				setQuestion={setQuestion}
+			/>
 			<div className='content__info'>
 				<div className='content__info__wrapper'>
 					<p>

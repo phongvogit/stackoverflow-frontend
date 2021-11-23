@@ -3,20 +3,20 @@ import axiosClient from './axiosClient';
 const voteApi = {
 	upVoteForAnswer(questionId, answerId) {
 		const url = `/votes/upvote/${questionId}/${answerId}`;
-		return axiosClient.post(url);
+		return axiosClient.get(url);
 	},
 	upVoteForQuestion(questionId) {
 		const url = `/votes/upvote/${questionId}`;
-		return axiosClient.post(url);
+		return axiosClient.get(url);
 	},
 
 	downVoteForAnswer(questionId, answerId) {
 		const url = `/votes/downVote/${questionId}/${answerId}`;
-		return axiosClient.post(url);
+		return axiosClient.get(url);
 	},
 	downVoteForQuestion(questionId) {
 		const url = `/votes/downVote/${questionId}`;
-		return axiosClient.post(url);
+		return axiosClient.get(url);
 	},
 
 	unVoteForAnswer(questionId, answerId) {

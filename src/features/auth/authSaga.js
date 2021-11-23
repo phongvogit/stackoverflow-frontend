@@ -11,18 +11,7 @@ function* handleLogin(action) {
 		localStorage.setItem('token', response.token);
 		localStorage.setItem('userInfo', JSON.stringify(response.userInfo));
 		localStorage.setItem('expiresAt', response.expiresAt);
-		yield put(
-			authActions.loginSuccess({
-				username: response.userInfo.username,
-				profilePhoto: response.userInfo.profilePhoto,
-				created: response.userInfo.created,
-			}),
-		);
-
-		// redirect to previous page
-		console.log(window.location);
-		// const from = Boolean(history.location.state) ? window.location.state : '/';
-		// yield put(push(from));
+		yield put(authActions.loginSuccess(response.userInfo));
 	} catch (error) {
 		yield put(authActions.loginFailed(error.message));
 	}
@@ -41,16 +30,9 @@ function* watchLoginFlow() {
 			const action = yield take(authActions.login.type);
 			yield fork(handleLogin, action.payload);
 		} else {
-			console.log(JSON.parse(localStorage.getItem('userInfo')), 'userInfo');
 			const userInfo = JSON.parse(localStorage.getItem('userInfo'));
 
-			yield put(
-				authActions.loginSuccess({
-					username: userInfo.username,
-					profilePhoto: userInfo.profilePhoto,
-					created: userInfo.created,
-				}),
-			);
+			yield put(authActions.loginSuccess(userInfo));
 		}
 
 		yield take(authActions.logout.type);
