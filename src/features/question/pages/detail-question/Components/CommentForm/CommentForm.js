@@ -5,6 +5,9 @@ import LinkButton from '../../../../../../components/Common/LinkButton/LinkButto
 import { InputField } from '../../../../../../components/FormFields/InputField/InputField';
 import * as yup from 'yup';
 import commentApi from '../../../../../../api/commentApi';
+import { useHistory } from 'react-router';
+import { useAppSelector } from '../../../../../../app/hooks';
+import { selectIsLoggedIn } from '../../../../../auth/authSlice';
 
 const schema = yup
 	.object({
@@ -23,24 +26,22 @@ const CommentForm = ({ questionId, answerId, setQuestion }) => {
 		reset,
 		formState: { isSubmitting, errors },
 	} = useForm({ defaultValues: { body: '' }, resolver: yupResolver(schema) });
+	const history = useHistory();
+	const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
 	const handleFormSubmit = async formValues => {
-		try {
-			if (answerId) {
-				const data = await commentApi.addToAnswer(
-					questionId,
-					answerId,
-					formValues,
-				);
-				setQuestion(data);
-				reset({ body: 'asd' });
-			} else {
-				const data = await commentApi.addToQuestion(questionId, formValues);
-				setQuestion(data);
-			}
-		} catch (error) {
-			console.log(error, 'error');
+		if (answerId) {
+			const data = await commentApi.addToAnswer(
+				questionId,
+				answerId,
+				formValues,
+			);
+			setQuestion(data);
+		} else {
+			const data = await commentApi.addToQuestion(questionId, formValues);
+			setQuestion(data);
 		}
+		reset({ body: '' });
 	};
 
 	return (

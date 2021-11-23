@@ -21,11 +21,11 @@ const voteApi = {
 
 	unVoteForAnswer(questionId, answerId) {
 		const url = `/votes/unVote/${questionId}/${answerId}`;
-		return axiosClient.post(url);
+		return axiosClient.get(url);
 	},
 	unVoteForQuestion(questionId) {
 		const url = `/votes/unVote/${questionId}`;
-		return axiosClient.post(url);
+		return axiosClient.get(url);
 	},
 };
 

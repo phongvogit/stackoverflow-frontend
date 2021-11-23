@@ -10,7 +10,7 @@ import './DetailQuestion.css';
 const DetailQuestion = () => {
 	const [question, setQuestion] = useState({});
 	const [answerSortType, setAnswersSortType] = useState('Votes');
-	console.log(question);
+
 	const { questionId } = useParams();
 
 	useEffect(() => {

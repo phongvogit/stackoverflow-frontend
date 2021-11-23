@@ -1,6 +1,7 @@
 .home {
 	color: var(--txt-color);
 	min-height: '100vh';
+	overflow: hidden;
 }
 
 .home__header {

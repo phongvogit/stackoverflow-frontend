@@ -9,21 +9,18 @@ import './QuestionVote.css';
 const QuestionVote = ({ score, votes, questionId, answerId, setQuestion }) => {
 	const currentUser = useAppSelector(selectCurrentUser);
 	const history = useHistory();
-	console.log('votes: ', votes);
-	console.log('currentUser', currentUser);
 
 	const isUpVoted = () => {
 		return votes?.find(v => v.user === currentUser?._id)?.vote === 1;
 	};
 
-	console.log('isUpVoted: ', isUpVoted());
 	const isDownVoted = () => {
 		return votes?.find(v => v.user === currentUser?._id)?.vote === -1;
 	};
 
 	const upVote = async () => {
 		if (answerId) {
-			const question = await voteApi.unVoteForAnswer(questionId, answerId);
+			const question = await voteApi.upVoteForAnswer(questionId, answerId);
 			setQuestion(question);
 		} else if (questionId) {
 			const question = await voteApi.upVoteForQuestion(questionId);

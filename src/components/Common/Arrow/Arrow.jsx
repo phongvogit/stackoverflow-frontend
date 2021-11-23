@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Arrow = ({ type, active }) => {
-	console.log('active: ', active);
 	return (
 		<>
 			{type === 'up' ? (
