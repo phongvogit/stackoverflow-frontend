@@ -2,6 +2,7 @@ import React from 'react';
 import './InputField.css';
 
 export function InputField({
+	type,
 	label,
 	inputInfo,
 	placeholder,
@@ -17,10 +18,10 @@ export function InputField({
 			<div className='input-field__txt'>
 				{icon && <i className={`bx bx-${icon} input-field__txt__icon`}></i>}
 				<input
+					type={type}
 					className={`input-field__txt__inner ${
 						icon && 'input-field__txt__inner-space-icon'
 					}`}
-					type='text'
 					placeholder={placeholder}
 					onChange={onChange}
 					{...inputProps}

@@ -1,19 +1,30 @@
 import { call, delay, fork, put, take } from '@redux-saga/core/effects';
-import { push } from 'connected-react-router';
 import authApi from '../../api/authApi';
 import { isAuthenticated } from '../../utils/auth';
 import { authActions } from './authSlice';
 
 function* handleLogin(action) {
-	const response = yield call(authApi.login, action.payload);
 	try {
+		const response = yield call(authApi.login, action.payload);
+		localStorage.setItem('token', response.token);
+		localStorage.setItem('userInfo', JSON.stringify(response.userInfo));
+		localStorage.setItem('expiresAt', response.expiresAt);
+		yield put(authActions.loginSuccess(response.userInfo));
+	} catch (error) {
+		yield put(authActions.fetchFailed(error.response.data.message));
+	}
+}
+
+function* handleSignup(action) {
+	try {
+		const response = yield call(authApi.signup, action.payload);
 		yield delay(1000);
 		localStorage.setItem('token', response.token);
 		localStorage.setItem('userInfo', JSON.stringify(response.userInfo));
 		localStorage.setItem('expiresAt', response.expiresAt);
 		yield put(authActions.loginSuccess(response.userInfo));
 	} catch (error) {
-		yield put(authActions.loginFailed(error.message));
+		yield put(authActions.fetchFailed(error.response.data.message));
 	}
 }
 
@@ -27,16 +38,29 @@ function* watchLoginFlow() {
 	while (true) {
 		const isLoggedIn = isAuthenticated();
 		if (!isLoggedIn) {
-			const action = yield take(authActions.login.type);
-			yield fork(handleLogin, action.payload);
+			const action = yield take([
+				authActions.login.type,
+				authActions.signup.type,
+			]);
+			console.log(action);
+			if (action.type === 'auth/login') {
+				yield fork(handleLogin, action);
+			} else if (action.type === 'auth/signup') {
+				yield fork(handleSignup, action);
+			}
 		} else {
 			const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-
 			yield put(authActions.loginSuccess(userInfo));
 		}
 
-		yield take(authActions.logout.type);
-		yield call(handleLogout);
+		const action = yield take([
+			authActions.logout.type,
+			authActions.fetchFailed.type,
+		]);
+
+		if (action.type !== 'auth/fetchFailed') {
+			yield call(handleLogout);
+		}
 	}
 }
 

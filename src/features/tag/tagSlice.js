@@ -5,11 +5,11 @@ const initialState = {
 	list: [],
 	filter: {
 		_page: 1,
-		_limit: 5,
+		_limit: 10,
 	},
 	pagination: {
 		_page: 1,
-		_limit: 5,
+		_limit: 10,
 		_totalRows: 6,
 	},
 };

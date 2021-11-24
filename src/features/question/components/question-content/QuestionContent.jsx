@@ -53,10 +53,12 @@ const QuestionContent = ({ question, handleSelectedTag }) => {
 								addSuffix: true,
 							})}
 						</p>
-						<div className='question-content__right__author__avatar'>
-							<img src={author_doc[0].profilePhoto} />
-							<span>{author_doc[0].username}</span>
-						</div>
+						<Link to={`/users/${author_doc[0].username}`}>
+							<div className='question-content__right__author__avatar'>
+								<img src={author_doc[0].profilePhoto} />
+								<span>{author_doc[0].username}</span>
+							</div>
+						</Link>
 					</div>
 				</div>
 			</div>

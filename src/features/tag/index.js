@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../app/hooks';
 import PaginationCustom from '../../components/Common/Pagination/Pagination';
 import { InputField } from '../../components/FormFields/InputField/InputField';
@@ -64,7 +65,9 @@ const Tag = () => {
 
 			<div className='tag-content__tags'>
 				{tagList.map(tag => (
-					<CardTag key={tag._id} label={tag._id} count={tag.count} />
+					<Link to={`/questions/tags/${tag._id}`}>
+						<CardTag key={tag._id} label={tag._id} count={tag.count} />
+					</Link>
 				))}
 			</div>
 			<div className='tag-content__pagination'>

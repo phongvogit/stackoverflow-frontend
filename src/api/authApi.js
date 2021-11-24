@@ -1,12 +1,16 @@
 import axiosClient from './axiosClient';
 
 const authApi = {
-	login() {
+	login(body) {
 		const url = '/authenticate';
-		return axiosClient.post(url, {
-			username: 'ducphong5',
-			password: 'hello1',
-		});
+		console.log(body, 'body');
+		return axiosClient.post(url, body);
+	},
+
+	signup(body) {
+		const url = '/signup';
+		console.log(url);
+		return axiosClient.post(url, body);
 	},
 };
 
