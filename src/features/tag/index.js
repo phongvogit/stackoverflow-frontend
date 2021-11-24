@@ -67,12 +67,13 @@ const Tag = () => {
 					<CardTag key={tag._id} label={tag._id} count={tag.count} />
 				))}
 			</div>
-
-			<PaginationCustom
-				pageCount={Math.ceil(pagination._totalRows / pagination._limit)}
-				page={pagination._page - 1}
-				changePage={handlePageChange}
-			/>
+			<div className='tag-content__pagination'>
+				<PaginationCustom
+					pageCount={Math.ceil(pagination._totalRows / pagination._limit)}
+					page={pagination._page - 1}
+					changePage={handlePageChange}
+				/>
+			</div>
 		</div>
 	);
 };

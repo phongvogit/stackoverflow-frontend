@@ -5,7 +5,7 @@ import './CardUser.css';
 
 const CardUser = ({ profilePhoto, username, question_doc, created }) => {
 	return (
-		<Link className='card-user' to='/users/123'>
+		<Link className='card-user' to={`/users/${username}`}>
 			<div className='card-user-avatar'>
 				<img src={profilePhoto} alt='avatar' />
 			</div>

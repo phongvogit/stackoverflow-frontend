@@ -11,6 +11,10 @@ const userApi = {
 		const url = `/users/${username}`;
 		return axiosClient.get(url, { params });
 	},
+	getUserPrivateInfo(username) {
+		const url = `/user/${username}`;
+		return axiosClient.get(url);
+	},
 };
 
 export default userApi;

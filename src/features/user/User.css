@@ -1,4 +1,5 @@
 .user {
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 }
@@ -20,4 +21,8 @@
 	display: grid;
 	grid-gap: 12px;
 	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+.user__pagination {
+	margin-top: auto;
 }

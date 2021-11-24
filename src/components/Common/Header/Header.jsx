@@ -41,9 +41,6 @@ const Header = props => {
 					</Link>
 				</div>
 				<div className='header__container__right'>
-					<div className='header__container__right__search'>
-						<InputField icon='search' placeholder='Search here...' />
-					</div>
 					<div className='header__container__right__buttons'>
 						{currentUser ? (
 							<>

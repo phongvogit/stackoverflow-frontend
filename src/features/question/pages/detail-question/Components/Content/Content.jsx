@@ -48,11 +48,7 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 			/>
 			<div className='content__info'>
 				<div className='content__info__wrapper'>
-					<p>
-						{`${text}`}A tag is a keyword or label that categorizes your
-						question with other, similar questions. Using the right tags makes
-						it easier for others to find and answer your question
-					</p>
+					<p>{`${text}`}</p>
 
 					<div className='content__info__labels'>
 						{Boolean(tags) &&
@@ -65,9 +61,11 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 					<div className='content__info__author__wrapper'>
 						{(currentUser?.username === author?.username ||
 							currentUser?.role === 'admin') && (
-							<a className='delete' onClick={() => handleDeleteQuestion()}>
-								Delete
-							</a>
+							<div className='content__info__author__wrapper__delete'>
+								<a className='delete' onClick={() => handleDeleteQuestion()}>
+									Delete
+								</a>
+							</div>
 						)}
 						<div className='content__info__author'>
 							<p>

@@ -2,6 +2,7 @@
 	color: var(--txt-color);
 	min-height: '100vh';
 	overflow: hidden;
+	background-color: var(--main-bg);
 }
 
 .home__header {
@@ -25,17 +26,22 @@
 
 .home__main__content {
 	width: calc(100vw - var(--sidebar-width) - var(--sidebar-tags-width));
-	background-color: var(--main-bg);
 
 	padding: 30px 15px 0px 15px;
 }
 
 .home__main__tags {
 	width: var(--sidebar-tags-width);
-	background-color: var(--main-bg);
 
 	padding-top: 30px;
 	padding-left: 12px;
+	margin-right: 200px;
+}
+
+@media (max-width: 1500px) {
+	.home__main__tags {
+		margin-right: 0px;
+	}
 }
 
 @media (max-width: 776px) {

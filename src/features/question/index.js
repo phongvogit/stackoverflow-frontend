@@ -104,11 +104,13 @@ const Question = () => {
 				</>
 			))}
 			<hr />
-			<PaginationCustom
-				pageCount={Math.ceil(pagination._totalRows / pagination._limit)}
-				page={pagination._page - 1}
-				changePage={handlePageChange}
-			/>
+			<div className='question__pagination'>
+				<PaginationCustom
+					pageCount={Math.ceil(pagination._totalRows / pagination._limit)}
+					page={pagination._page - 1}
+					changePage={handlePageChange}
+				/>
+			</div>
 		</div>
 	);
 };

@@ -48,8 +48,12 @@
 .content__info__author__wrapper {
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
+}
+
+.content__info__author__wrapper__delete {
+	margin-right: auto;
 }
 
 .content__info__author {

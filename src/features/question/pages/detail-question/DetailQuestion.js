@@ -41,12 +41,7 @@ const DetailQuestion = () => {
 
 	return (
 		<div className='detail-question'>
-			<h2>
-				{question.title}
-				{
-					'A tag is a keyword or label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question'
-				}
-			</h2>
+			<h2>{question.title}</h2>
 			<p>
 				Asked{' '}
 				{question.created !== undefined &&

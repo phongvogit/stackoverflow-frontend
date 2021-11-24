@@ -15,6 +15,10 @@ const questionApi = {
 		const url = `/question/${id}`;
 		return axiosClient.get(url);
 	},
+	getQuestionsByUsername(username) {
+		const url = `/question/user/${username}`;
+		return axiosClient.get(url);
+	},
 	add(body) {
 		const url = '/questions';
 		return axiosClient.post(url, body);
