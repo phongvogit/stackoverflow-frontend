@@ -145,13 +145,13 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 						</a>
 					)
 				)}
-
 				{showAddComment && (
 					<div>
 						<CommentForm
 							questionId={questionId}
 							setQuestion={setQuestion}
 							answerId={answerId}
+							setShowAdd={setShowAddComment}
 						/>
 					</div>
 				)}

@@ -8,6 +8,7 @@ import commentApi from '../../../../../../api/commentApi';
 import { useHistory } from 'react-router';
 import { useAppSelector } from '../../../../../../app/hooks';
 import { selectIsLoggedIn } from '../../../../../auth/authSlice';
+import { toast } from 'react-toastify';
 
 const schema = yup
 	.object({
@@ -19,7 +20,7 @@ const schema = yup
 	})
 	.required();
 
-const CommentForm = ({ questionId, answerId, setQuestion }) => {
+const CommentForm = ({ questionId, answerId, setQuestion, setShowAdd }) => {
 	const {
 		handleSubmit,
 		register,
@@ -39,7 +40,9 @@ const CommentForm = ({ questionId, answerId, setQuestion }) => {
 			const data = await commentApi.addToQuestion(questionId, formValues);
 			setQuestion(data);
 		}
+		toast.success('Added successfully!');
 		reset({ body: '' });
+		setShowAdd(false);
 	};
 
 	return (
