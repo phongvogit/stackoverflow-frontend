@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import LinkButton from '../../../../../../components/Common/LinkButton/LinkButton';
 import { TextArea } from '../../../../../../components/FormFields/TextArea/TextArea';
 import answerApi from '../../../../../../api/answerApi';
+import { toast } from 'react-toastify';
 import * as yup from 'yup';
 
 const schema = yup
@@ -27,6 +28,7 @@ const AnswerForm = ({ id, setQuestion }) => {
 	const handleFormSubmit = async formValues => {
 		try {
 			const data = await answerApi.add(id, formValues);
+			toast.success('Add answer successfully!');
 			setQuestion(data);
 			reset({ text: '' });
 		} catch (error) {

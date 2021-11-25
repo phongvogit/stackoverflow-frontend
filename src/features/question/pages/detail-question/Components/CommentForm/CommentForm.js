@@ -26,8 +26,6 @@ const CommentForm = ({ questionId, answerId, setQuestion }) => {
 		reset,
 		formState: { isSubmitting, errors },
 	} = useForm({ defaultValues: { body: '' }, resolver: yupResolver(schema) });
-	const history = useHistory();
-	const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
 	const handleFormSubmit = async formValues => {
 		if (answerId) {

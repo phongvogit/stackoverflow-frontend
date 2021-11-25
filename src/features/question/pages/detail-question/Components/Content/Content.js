@@ -1,5 +1,5 @@
 import { formatDistanceToNowStrict } from 'date-fns';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import answerApi from '../../../../../../api/answerApi';
@@ -8,16 +8,33 @@ import questionApi from '../../../../../../api/questionApi';
 import { useAppSelector } from '../../../../../../app/hooks';
 import Arrow from '../../../../../../components/Common/Arrow/Arrow';
 import LinkButton from '../../../../../../components/Common/LinkButton/LinkButton';
-import { selectCurrentUser } from '../../../../../auth/authSlice';
+import {
+	selectCurrentUser,
+	selectIsLoggedIn,
+} from '../../../../../auth/authSlice';
 import Comment from '../Comment/Comment';
 import CommentForm from '../CommentForm/CommentForm';
 import QuestionVote from '../QuestionVote/QuestionVote';
+import { toast } from 'react-toastify';
+
 import './Content.css';
 
 const Content = ({ data, questionId, answerId, setQuestion }) => {
 	const { score, comments, tags, author, text, votes } = data;
+	const [visibleComments, setVisibleComments] = useState([]);
+	const [difference, setDifference] = useState(null);
+	const [showAddComment, setShowAddComment] = useState(false);
 	const currentUser = useAppSelector(selectCurrentUser);
 	const history = useHistory();
+	const isAuthenticated = useAppSelector(selectIsLoggedIn);
+
+	useEffect(() => {
+		setVisibleComments(comments?.splice(0, 3));
+	}, [comments]);
+
+	useEffect(() => {
+		setDifference(comments?.length - visibleComments?.length);
+	}, [visibleComments]);
 
 	const handleDeleteQuestion = async () => {
 		const res = window.confirm(
@@ -27,13 +44,14 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 			try {
 				if (answerId) {
 					const data = await answerApi.removeAnswer(questionId, answerId);
+					toast.success('Remove successfully');
 					setQuestion(data);
 				} else {
 					await questionApi.removeQuestion(questionId);
 					history.push('/');
 				}
 			} catch (error) {
-				console.log('Delete Failed!');
+				toast.error('Delete Failed!');
 			}
 		}
 	};
@@ -92,8 +110,8 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 					</div>
 				</div>
 
-				{Boolean(comments) &&
-					comments.map(comment => (
+				{Boolean(visibleComments) &&
+					visibleComments.map(comment => (
 						<>
 							<hr />
 							<Comment
@@ -106,14 +124,37 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 							/>
 						</>
 					))}
+
 				<hr />
-				<div>
-					<CommentForm
-						questionId={questionId}
-						setQuestion={setQuestion}
-						answerId={answerId}
-					/>
-				</div>
+				{difference > 0 ? (
+					<a
+						className='content__show-more'
+						onClick={() => setVisibleComments(comments)}>
+						show <b>{difference}</b> more comments
+					</a>
+				) : (
+					!showAddComment && (
+						<a
+							className='content__add-comment'
+							onClick={() =>
+								isAuthenticated
+									? setShowAddComment(true)
+									: history.push('/login')
+							}>
+							Add comment
+						</a>
+					)
+				)}
+
+				{showAddComment && (
+					<div>
+						<CommentForm
+							questionId={questionId}
+							setQuestion={setQuestion}
+							answerId={answerId}
+						/>
+					</div>
+				)}
 			</div>
 		</div>
 	);

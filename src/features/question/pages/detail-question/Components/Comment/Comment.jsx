@@ -4,6 +4,7 @@ import commentApi from '../../../../../../api/commentApi';
 import { useAppSelector } from '../../../../../../app/hooks';
 import LinkButton from '../../../../../../components/Common/LinkButton/LinkButton';
 import { selectCurrentUser } from '../../../../../auth/authSlice';
+import { toast } from 'react-toastify';
 
 import './Comment.css';
 
@@ -21,18 +22,17 @@ const Comment = ({ data, answerId, questionId, commentId, setQuestion }) => {
 						answerId,
 						commentId,
 					);
-					console.log('dataDe: ', data);
 					setQuestion(data);
 				} else {
 					const data = await commentApi.removeCommentFromQuestion(
 						questionId,
 						commentId,
 					);
-					console.log('dataDe: ', data);
 					setQuestion(data);
 				}
+				toast.success('Remove comment successfully');
 			} catch (error) {
-				console.log('Delete Failed!');
+				toast.error('Delete Failed!');
 			}
 		}
 	};

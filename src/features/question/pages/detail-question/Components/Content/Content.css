@@ -85,6 +85,19 @@
 	margin-left: 10px;
 }
 
+.content__show-more,
+.content__add-comment {
+	font-size: 0.85em;
+	margin-top: 8px;
+	color: #62b4ff;
+	cursor: pointer;
+}
+
+.content__show-more,
+.content__add-comment:hover {
+	opacity: 0.6;
+}
+
 @media (max-width: 1300px) {
 	.content__info__wrapper {
 		width: 100%;
