@@ -9,15 +9,18 @@ import './User.css';
 import {
 	selectUserFilter,
 	selectUserList,
+	selectUserLoading,
 	selectUserPagination,
 	userActions,
 } from './userSlice';
+import SvgSpinner from '../../components/Common/Spinner/Spinner';
 
 const User = () => {
 	const dispatch = useDispatch();
 	const pagination = useAppSelector(selectUserPagination);
 	const filter = useAppSelector(selectUserFilter);
 	const userList = useAppSelector(selectUserList);
+	const isLoading = useAppSelector(selectUserLoading);
 
 	useEffect(() => {
 		dispatch(userActions.fetchUserList(filter));
@@ -53,6 +56,11 @@ const User = () => {
 				/>
 			</div>
 
+			{isLoading && (
+				<div className='loading item-center'>
+					<SvgSpinner />
+				</div>
+			)}
 			<div className='user__grid-layout-users'>
 				{userList.map(({ profilePhoto, username, question_doc, created }) => (
 					<CardUser

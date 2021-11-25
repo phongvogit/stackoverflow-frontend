@@ -63,7 +63,6 @@ const AuthForm = ({ action = 'Login', initialState, error }) => {
 			dispatch(authActions.signup(formValues));
 		}
 		reset(initialState);
-		setIsLoading(false);
 	};
 
 	return (

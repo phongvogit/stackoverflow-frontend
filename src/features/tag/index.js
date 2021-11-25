@@ -9,15 +9,18 @@ import './Tag.css';
 import {
 	selectTagFilter,
 	selectTagList,
+	selectTagLoading,
 	selectTagPagination,
 	tagActions,
 } from './tagSlice';
+import SvgSpinner from '../../components/Common/Spinner/Spinner';
 
 const Tag = () => {
 	const dispatch = useDispatch();
 	const pagination = useAppSelector(selectTagPagination);
 	const filter = useAppSelector(selectTagFilter);
 	const tagList = useAppSelector(selectTagList);
+	const isLoading = useAppSelector(selectTagLoading);
 
 	useEffect(() => {
 		dispatch(
@@ -62,7 +65,11 @@ const Tag = () => {
 					onChange={handleSearchChange}
 				/>
 			</div>
-
+			{isLoading && (
+				<div className='loading item-center'>
+					<SvgSpinner />
+				</div>
+			)}
 			<div className='tag-content__tags'>
 				{tagList.map(tag => (
 					<Link to={`/questions/tags/${tag._id}`}>

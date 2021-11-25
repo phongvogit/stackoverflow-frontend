@@ -27,7 +27,7 @@
 .home__main__content {
 	width: calc(100vw - var(--sidebar-width) - var(--sidebar-tags-width));
 
-	padding: 30px 15px 0px 15px;
+	padding: 30px 50px 0px 50px;
 }
 
 .home__main__tags {
@@ -51,6 +51,7 @@
 
 	.home__main__content {
 		width: calc(100vw - var(--sidebar-tags-width));
+		padding: 30px 15px 0px 15px;
 	}
 }
 

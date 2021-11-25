@@ -53,6 +53,10 @@
 .question-content__right > a {
 	color: #328dd2;
 	font-size: 1.2em;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 }
 
 .question-content__right > p {

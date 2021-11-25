@@ -1,4 +1,5 @@
 .sidebar {
+	position: fixed;
 	min-width: var(--sidebar-width);
 	height: 100%;
 

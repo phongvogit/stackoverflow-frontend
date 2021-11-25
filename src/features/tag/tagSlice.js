@@ -34,13 +34,16 @@ const tagSlice = createSlice({
 			state.filter = action.payload;
 		},
 
-		setFilterWithDebounce(state, action) {},
+		setFilterWithDebounce(state, action) {
+			state.loading = true;
+		},
 	},
 });
 
 //Actions
 export const tagActions = tagSlice.actions;
 //Selectors
+export const selectTagLoading = state => state.tag.loading;
 export const selectTagList = state => state.tag.list;
 export const selectTagPagination = state => state.tag.pagination;
 export const selectTagFilter = state => state.tag.filter;
