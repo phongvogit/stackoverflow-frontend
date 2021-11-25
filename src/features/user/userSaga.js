@@ -10,7 +10,6 @@ import { userActions } from './userSlice';
 
 function* fetchUserList(action) {
 	try {
-		yield delay(1000);
 		const response = yield call(userApi.getAll, action.payload);
 		yield put(userActions.fetchUserListSuccess(response));
 	} catch (error) {
@@ -21,7 +20,6 @@ function* fetchUserList(action) {
 
 function* handleSearchDebounce(action) {
 	try {
-		yield delay(500);
 		const response = yield call(userApi.getUserByName, action.payload);
 		yield put(userActions.fetchUserListSuccess(response));
 	} catch (error) {

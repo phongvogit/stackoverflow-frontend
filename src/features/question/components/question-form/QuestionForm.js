@@ -34,7 +34,6 @@ const QuestionForm = ({ initialValues, onSubmit }) => {
 		handleSubmit,
 		setValue,
 		watch,
-		resetField,
 		formState: { isSubmitting, errors },
 	} = useForm({
 		defaultValues: initialValues,
@@ -81,7 +80,11 @@ const QuestionForm = ({ initialValues, onSubmit }) => {
 				/>
 			</div>
 			<div className='question-form__btn'>
-				<LinkButton type={'btn--primary'} label={'Post your question'} />
+				<LinkButton
+					type={'btn--primary'}
+					label={'Post your question'}
+					isLoading={isSubmitting}
+				/>
 			</div>
 		</form>
 	);

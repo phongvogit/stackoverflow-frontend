@@ -23,7 +23,7 @@ const Home = props => {
 	const [listPopularTags, setListPopularTags] = useState([]);
 	const history = useHistory();
 	const dispatch = useAppDispatch();
-	const filter = useAppSelector(selectTagFilter);
+	const filter = useAppSelector(selectQuestionFilter);
 
 	useEffect(() => {
 		(async () => {

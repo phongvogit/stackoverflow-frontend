@@ -21,7 +21,6 @@ const authSlice = createSlice({
 			state.isLoggedIn = true;
 			state.logging = false;
 			state.currentUser = action.payload;
-			state.messageError = '';
 		},
 		fetchFailed(state, action) {
 			state.logging = false;

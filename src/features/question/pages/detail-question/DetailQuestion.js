@@ -3,25 +3,30 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import questionApi from '../../../../api/questionApi';
 import GroupButtons from '../../../../components/Common/GroupButtons/GroupButtons';
+import SvgSpinner from '../../../../components/Common/Spinner/Spinner';
 import AnswerForm from './Components/AnswerForm/AnswerForm';
 import Content from './Components/Content/Content';
+
 import './DetailQuestion.css';
 
 const DetailQuestion = () => {
 	const [question, setQuestion] = useState({});
 	const [answerSortType, setAnswersSortType] = useState('Votes');
+	const [isLoading, setIsLoading] = useState(false);
 
 	const { questionId } = useParams();
 
 	useEffect(() => {
+		setIsLoading(true);
 		if (!questionId) return;
-
 		(async () => {
 			try {
 				const data = await questionApi.getById(questionId);
 				setQuestion(data);
+				setIsLoading(false);
 			} catch (error) {
 				console.log('Failed to fetch question details', error);
+				setIsLoading(false);
 			}
 		})();
 	}, []);
@@ -41,6 +46,11 @@ const DetailQuestion = () => {
 
 	return (
 		<div className='detail-question'>
+			{isLoading && (
+				<div className='loading item-center'>
+					<SvgSpinner />
+				</div>
+			)}
 			<h2>{question.title}</h2>
 			<p>
 				Asked{' '}

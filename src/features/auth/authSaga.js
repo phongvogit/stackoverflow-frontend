@@ -5,6 +5,7 @@ import { authActions } from './authSlice';
 
 function* handleLogin(action) {
 	try {
+		yield delay(1000);
 		const response = yield call(authApi.login, action.payload);
 		localStorage.setItem('token', response.token);
 		localStorage.setItem('userInfo', JSON.stringify(response.userInfo));
@@ -17,8 +18,8 @@ function* handleLogin(action) {
 
 function* handleSignup(action) {
 	try {
-		const response = yield call(authApi.signup, action.payload);
 		yield delay(1000);
+		const response = yield call(authApi.signup, action.payload);
 		localStorage.setItem('token', response.token);
 		localStorage.setItem('userInfo', JSON.stringify(response.userInfo));
 		localStorage.setItem('expiresAt', response.expiresAt);
@@ -42,7 +43,6 @@ function* watchLoginFlow() {
 				authActions.login.type,
 				authActions.signup.type,
 			]);
-			console.log(action);
 			if (action.type === 'auth/login') {
 				yield fork(handleLogin, action);
 			} else if (action.type === 'auth/signup') {
@@ -65,5 +65,6 @@ function* watchLoginFlow() {
 }
 
 export function* authSaga() {
+	//reset Error message when moving another page
 	yield fork(watchLoginFlow);
 }

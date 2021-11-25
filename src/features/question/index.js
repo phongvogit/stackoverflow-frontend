@@ -26,7 +26,6 @@ const Question = () => {
 	const isLoggedIn = useAppSelector(selectIsLoggedIn);
 	const history = useHistory();
 	const isLoading = useAppSelector(selectQuestionLoading);
-	console.log('isLoading: ', isLoading);
 
 	useEffect(() => {
 		const currentUrl = history.location.pathname;

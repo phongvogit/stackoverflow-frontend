@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppDispatch } from '../../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { ReactComponent as Logo } from '../../../assets/images/LogoGlyphMd.svg';
-import { authActions } from '../../../features/auth/authSlice';
+import { authActions, selectIsLogging } from '../../../features/auth/authSlice';
 import LinkButton from '../LinkButton/LinkButton';
 import './AuthForm.css';
 
@@ -53,10 +53,14 @@ const AuthForm = ({ action = 'Login', initialState, error }) => {
 		formState: { isSubmitting, errors },
 	} = useForm({ defaultValues: initialState, resolver: yupResolver(schema) });
 	const dispatch = useAppDispatch();
-	const [loading, setIsLoading] = useState(false);
+	const isLoading = useAppSelector(selectIsLogging);
+
+	useEffect(() => {
+		// reset Error message
+		dispatch(authActions.fetchFailed(''));
+	}, []);
 
 	const onSubmit = async formValues => {
-		setIsLoading(true);
 		if (action === 'Login') {
 			dispatch(authActions.login(formValues));
 		} else if (action === 'Sign up') {
@@ -102,7 +106,7 @@ const AuthForm = ({ action = 'Login', initialState, error }) => {
 					{error && <p className='delete'>* {error}</p>}
 					<LinkButton
 						disabled={isSubmitting}
-						isLoading={loading}
+						isLoading={isLoading}
 						type={'btn--primary'}
 						label={action === 'Sign up' ? 'Sign up' : 'Login'}
 						style={{ width: '100%', height: '100%' }}

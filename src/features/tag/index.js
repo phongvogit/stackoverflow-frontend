@@ -23,13 +23,8 @@ const Tag = () => {
 	const isLoading = useAppSelector(selectTagLoading);
 
 	useEffect(() => {
-		dispatch(
-			tagActions.fetchTagList({
-				_limit: 7,
-				_page: 1,
-			}),
-		);
-	}, [dispatch]);
+		dispatch(tagActions.fetchTagList(filter));
+	}, [dispatch, filter]);
 
 	const handlePageChange = ({ selected }) => {
 		dispatch(

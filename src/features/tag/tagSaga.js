@@ -1,16 +1,9 @@
-import {
-	call,
-	debounce,
-	put,
-	takeLatest,
-	delay,
-} from '@redux-saga/core/effects';
+import { call, debounce, put, takeLatest } from '@redux-saga/core/effects';
 import tagApi from '../../api/tagApi';
 import { tagActions } from './tagSlice';
 
 function* fetchTagList(action) {
 	try {
-		yield delay(1000);
 		const response = yield call(tagApi.getAll, action.payload);
 		yield put(tagActions.fetchTagListSuccess(response));
 	} catch (error) {
@@ -21,7 +14,6 @@ function* fetchTagList(action) {
 
 function* handleSearchDebounce(action) {
 	try {
-		yield delay(500);
 		const response = yield call(tagApi.getTagsByName, action.payload);
 		yield put(tagActions.fetchTagListSuccess(response));
 	} catch (error) {
