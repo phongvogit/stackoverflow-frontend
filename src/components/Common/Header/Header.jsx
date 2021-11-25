@@ -44,7 +44,14 @@ const Header = props => {
 					<div className='header__container__right__buttons'>
 						{currentUser ? (
 							<>
-								<img src={currentUser.profilePhoto} alt='avatar' />
+								<Link to={`/users/${currentUser.username}`}>
+									<img
+										className='header__container__right__buttons__avatar'
+										src={currentUser.profilePhoto}
+										alt='avatar'
+									/>
+								</Link>
+
 								<LinkButton
 									type={'btn--second'}
 									label={'Log out'}

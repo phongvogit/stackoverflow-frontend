@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import AuthForm from '../../Common/AuthForm/AuthForm';
-import Header from '../../Common/Header/Header';
-import Caption from './components/Caption/Caption';
-import authApi from '../../../api/authApi';
-
-import './Signup.css';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router';
+import { useAppSelector } from '../../../app/hooks';
 import {
-	authActions,
 	selectFetchFailed,
 	selectIsLoggedIn,
 } from '../../../features/auth/authSlice';
-import { useAppDispatch, useAppSelector } from '../../../app/hooks';
-import { useHistory } from 'react-router';
+import AuthForm from '../../Common/AuthForm/AuthForm';
+import Header from '../../Common/Header/Header';
+import Caption from './components/Caption/Caption';
+import './Signup.css';
 
 const initialState = {
 	username: '',
@@ -20,7 +17,6 @@ const initialState = {
 };
 
 const Signup = () => {
-	const dispatch = useAppDispatch();
 	const history = useHistory();
 	const error = useAppSelector(selectFetchFailed);
 	const isLoggedIn = useAppSelector(selectIsLoggedIn);
@@ -35,9 +31,6 @@ const Signup = () => {
 		}
 	}, [isLoggedIn]);
 
-	const onSubmit = async formValues => {
-		await dispatch(authActions.signup(formValues));
-	};
 	return (
 		<div className='signup'>
 			<div className='signup__header'>
@@ -52,7 +45,6 @@ const Signup = () => {
 					<AuthForm
 						action='Sign up'
 						initialState={initialState}
-						onSubmit={onSubmit}
 						error={error}
 					/>
 				</div>

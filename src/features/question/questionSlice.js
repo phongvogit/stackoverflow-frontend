@@ -44,6 +44,7 @@ const questionSlice = createSlice({
 //Actions
 export const questionActions = questionSlice.actions;
 //Selectors
+export const selectQuestionLoading = state => state.question.loading;
 export const selectQuestionList = state => state.question.list;
 export const selectQuestionPagination = state => state.question.pagination;
 export const selectQuestionFilter = state => state.question.filter;

@@ -1,6 +1,7 @@
 import { formatDistanceToNowStrict } from 'date-fns';
 import React from 'react';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import answerApi from '../../../../../../api/answerApi';
 import commentApi from '../../../../../../api/commentApi';
 import questionApi from '../../../../../../api/questionApi';
@@ -48,7 +49,9 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 			/>
 			<div className='content__info'>
 				<div className='content__info__wrapper'>
-					<p>{`${text}`}</p>
+					<div className='content__info__text'>
+						<p>{`${text}`}</p>
+					</div>
 
 					<div className='content__info__labels'>
 						{Boolean(tags) &&
@@ -75,13 +78,16 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 										addSuffix: true,
 									})}
 							</p>
-							<div className='content__info__author__avatar'>
+							<Link
+								to={`/users/${author?.username}`}
+								className='content__info__author__avatar'>
 								<img
 									src={Boolean(author) && author.profilePhoto}
 									alt='avatar'
 								/>
+
 								<span>{Boolean(author) && author.username}</span>
-							</div>
+							</Link>
 						</div>
 					</div>
 				</div>

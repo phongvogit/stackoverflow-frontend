@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import GroupButtons from '../../components/Common/GroupButtons/GroupButtons';
 import LinkButton from '../../components/Common/LinkButton/LinkButton';
 import PaginationCustom from '../../components/Common/Pagination/Pagination';
+import SvgSpinner from '../../components/Common/Spinner/Spinner';
 import { checkSortType } from '../../utils/common';
 import { selectIsLoggedIn } from '../auth/authSlice';
 import QuestionContent from './components/question-content/QuestionContent';
@@ -12,6 +13,7 @@ import {
 	questionActions,
 	selectQuestionFilter,
 	selectQuestionList,
+	selectQuestionLoading,
 	selectQuestionPagination,
 } from './questionSlice';
 
@@ -23,6 +25,8 @@ const Question = () => {
 	const filter = useAppSelector(selectQuestionFilter);
 	const isLoggedIn = useAppSelector(selectIsLoggedIn);
 	const history = useHistory();
+	const isLoading = useAppSelector(selectQuestionLoading);
+	console.log('isLoading: ', isLoading);
 
 	useEffect(() => {
 		const currentUrl = history.location.pathname;
@@ -93,6 +97,11 @@ const Question = () => {
 			</div>
 
 			<hr />
+			{isLoading && (
+				<div className='loading item-center'>
+					<SvgSpinner />
+				</div>
+			)}
 			{questionList.map(question => (
 				<>
 					<QuestionContent
@@ -103,7 +112,6 @@ const Question = () => {
 					<hr />
 				</>
 			))}
-			<hr />
 			<div className='question__pagination'>
 				<PaginationCustom
 					pageCount={Math.ceil(pagination._totalRows / pagination._limit)}

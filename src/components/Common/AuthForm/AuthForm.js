@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../../../app/hooks';
 import { ReactComponent as Logo } from '../../../assets/images/LogoGlyphMd.svg';
@@ -53,14 +53,17 @@ const AuthForm = ({ action = 'Login', initialState, error }) => {
 		formState: { isSubmitting, errors },
 	} = useForm({ defaultValues: initialState, resolver: yupResolver(schema) });
 	const dispatch = useAppDispatch();
+	const [loading, setIsLoading] = useState(false);
 
 	const onSubmit = async formValues => {
+		setIsLoading(true);
 		if (action === 'Login') {
 			dispatch(authActions.login(formValues));
 		} else if (action === 'Sign up') {
 			dispatch(authActions.signup(formValues));
 		}
 		reset(initialState);
+		setIsLoading(false);
 	};
 
 	return (
@@ -99,6 +102,8 @@ const AuthForm = ({ action = 'Login', initialState, error }) => {
 					)}
 					{error && <p className='delete'>* {error}</p>}
 					<LinkButton
+						disabled={isSubmitting}
+						isLoading={loading}
 						type={'btn--primary'}
 						label={action === 'Sign up' ? 'Sign up' : 'Login'}
 						style={{ width: '100%', height: '100%' }}

@@ -1,8 +1,9 @@
-import { call, put, takeLatest } from '@redux-saga/core/effects';
+import { call, delay, put, takeLatest } from '@redux-saga/core/effects';
 import questionApi from '../../api/questionApi';
 import { questionActions } from './questionSlice';
 
 function* fetchQuestionList(action) {
+	yield delay(1500);
 	try {
 		const response = yield call(questionApi.getAll, action.payload);
 		yield put(questionActions.fetchQuestionListSuccess(response));

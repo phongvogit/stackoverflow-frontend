@@ -31,10 +31,13 @@
 	flex-direction: column;
 }
 
-.content__info__wrapper > p {
+.content__info__text {
 	font-size: 0.98em;
 	margin-bottom: 10px;
-	white-space: normal !important;
+	line-height: 1.3;
+	white-space: pre-wrap;
+	word-break: break-word;
+	color: whitesmoke;
 }
 
 .content__info__labels {

@@ -18,7 +18,7 @@ const schema = yup
 		text: yup
 			.string()
 			.required('Text is missing')
-			.max(150, 'Text cannot be longer than 150 characters.')
+			.max(1000, 'Text cannot be longer than 150 characters.')
 			.min(15, 'Text must be at least 15 characters.'),
 		tags: yup
 			.array()
