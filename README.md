@@ -49,4 +49,4 @@ Link: [Stackoverflow-phongdeptrai.website](https://serene-yalow-5f9d89.netlify.a
 
 #### IMAGES
 
-<img src="/demo/demo-1png" width=340px /><img src="/demo/demo-2png" width=340px /> <img src="/demo/demo-3png" width=340px /><img src="/demo/demo-4png" width=340px /> <img src="/demo/demo-5png" width=340px /><img src="/demo/demo-7png" width=340px /> <img src="/demo/demo-8png" width=340px /><img src="/demo/demo-9png" width=340px />
+<img src="/demo/demo-1.png" width=340px /><img src="/demo/demo-2.png" width=340px /> <img src="/demo/demo-3.png" width=340px /><img src="/demo/demo-4.png" width=340px /> <img src="/demo/demo-5.png" width=340px /><img src="/demo/demo-7.png" width=340px /> <img src="/demo/demo-8.png" width=340px /><img src="/demo/demo-9.png" width=340px />
