@@ -78,12 +78,12 @@ const DetailQuestion = () => {
 			{Boolean(question.answers) &&
 				question.answers.sort(handleSorting()).map(answer => (
 					<div key={answer._id} className='detail-question__answer__list'>
-						{/* <Content
+						<Content
 							data={answer}
 							questionId={questionId}
 							answerId={answer._id}
 							setQuestion={setQuestion}
-						/> */}
+						/>
 						<hr style={{ marginTop: '80px' }} />
 					</div>
 				))}
