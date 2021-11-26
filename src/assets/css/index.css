@@ -64,6 +64,10 @@ input:focus {
 	border: 2px solid var(--main-color);
 }
 
+.mt-1 {
+	margin-top: 8px;
+}
+
 .ml-1 {
 	margin-left: 8px;
 }
@@ -87,7 +91,7 @@ hr {
 .delete {
 	color: var(--danger);
 	cursor: pointer;
-	margin: 0 8px;
+	margin: 8px;
 	font-size: 0.8em;
 }
 

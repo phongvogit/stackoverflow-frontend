@@ -2,13 +2,12 @@ import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import App from './App';
 import { store } from './app/store';
 import { history } from './utils/history';
-import { ToastContainer } from 'react-toastify';
-
 import './assets/boxicons-2.0.7/css/boxicons.min.css';
-import 'react-toastify/dist/ReactToastify.css';
 import './assets/css/grid.css';
 import './assets/css/index.css';
 

@@ -6,17 +6,10 @@ import {
 	questionActions,
 	selectQuestionFilter,
 } from '../../../features/question/questionSlice';
-import {
-	selectPopularTagList,
-	selectTagFilter,
-	selectTagList,
-	tagActions,
-} from '../../../features/tag/tagSlice';
 import Header from '../../Common/Header/Header';
 import RightBanner from '../../Common/RightBanner/RightBanner';
 import Routes from '../../Common/Routes';
 import Sidebar from '../../Common/Sidebar/Sidebar';
-
 import './Home.css';
 
 const Home = props => {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import GroupButtons from '../../components/Common/GroupButtons/GroupButtons';
 import LinkButton from '../../components/Common/LinkButton/LinkButton';
@@ -26,16 +26,15 @@ const Question = () => {
 	const isLoggedIn = useAppSelector(selectIsLoggedIn);
 	const history = useHistory();
 	const isLoading = useAppSelector(selectQuestionLoading);
+	const { tag } = useParams();
 
 	useEffect(() => {
-		const currentUrl = history.location.pathname;
-		if (currentUrl.includes('/questions/tags')) {
-			const tags = [currentUrl.split('/').pop()];
-			dispatch(questionActions.fetchQuestionListByTag({ tags, filter }));
+		if (tag) {
+			dispatch(questionActions.fetchQuestionListByTag({ tag, filter }));
 		} else {
 			dispatch(questionActions.fetchQuestionList(filter));
 		}
-	}, [dispatch, filter]);
+	}, [dispatch, filter, tag]);
 
 	const handlePageChange = ({ selected }) => {
 		dispatch(
@@ -79,7 +78,7 @@ const Question = () => {
 		<div className='question'>
 			<div className='question__header'>
 				<div className='question__header__title'>
-					<h2>All Questions</h2>
+					<h2>All Questions {tag ? `[${tag}]` : ''}</h2>
 					<LinkButton
 						type={'btn--primary'}
 						label={'Ask Question'}
@@ -101,10 +100,10 @@ const Question = () => {
 					<SvgSpinner />
 				</div>
 			)}
-			{questionList.map(question => (
+			{questionList.map((question, idx) => (
 				<>
 					<QuestionContent
-						key={question._id}
+						key={idx}
 						question={question}
 						handleSelectedTag={handleSelectedTag}
 					/>

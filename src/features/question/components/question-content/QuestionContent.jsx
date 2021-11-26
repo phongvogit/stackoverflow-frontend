@@ -16,6 +16,7 @@ const QuestionContent = ({ question, handleSelectedTag }) => {
 		created,
 		_id,
 	} = question;
+	console.log('author_doc: ', author_doc);
 	return (
 		<div className='question-content'>
 			<div className='question-content__left'>
@@ -39,6 +40,7 @@ const QuestionContent = ({ question, handleSelectedTag }) => {
 				<div className='question-content__right__labels'>
 					{tags.map(tag => (
 						<LinkButton
+							key={tag}
 							type={'btn--tag'}
 							label={tag}
 							handleClick={() => handleSelectedTag(tag)}
@@ -53,10 +55,10 @@ const QuestionContent = ({ question, handleSelectedTag }) => {
 								addSuffix: true,
 							})}
 						</p>
-						<Link to={`/users/${author_doc[0].username}`}>
+						<Link to={`/users/${author_doc?.[0]?.username}`}>
 							<div className='question-content__right__author__avatar'>
-								<img src={author_doc[0].profilePhoto} />
-								<span>{author_doc[0].username}</span>
+								<img src={author_doc?.[0]?.profilePhoto} alt={'avatar'} />
+								<span>{author_doc?.[0]?.username}</span>
 							</div>
 						</Link>
 					</div>

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../app/hooks';
 import PaginationCustom from '../../components/Common/Pagination/Pagination';
+import SvgSpinner from '../../components/Common/Spinner/Spinner';
 import { InputField } from '../../components/FormFields/InputField/InputField';
 import CardTag from './components/CardTag';
 import './Tag.css';
@@ -13,7 +14,6 @@ import {
 	selectTagPagination,
 	tagActions,
 } from './tagSlice';
-import SvgSpinner from '../../components/Common/Spinner/Spinner';
 
 const Tag = () => {
 	const dispatch = useDispatch();

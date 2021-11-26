@@ -1,10 +1,4 @@
-import {
-	call,
-	debounce,
-	put,
-	takeLatest,
-	delay,
-} from '@redux-saga/core/effects';
+import { call, debounce, put, takeLatest } from '@redux-saga/core/effects';
 import userApi from '../../api/userApi';
 import { userActions } from './userSlice';
 

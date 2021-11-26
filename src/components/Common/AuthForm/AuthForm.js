@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import * as yup from 'yup';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { ReactComponent as Logo } from '../../../assets/images/LogoGlyphMd.svg';
 import { authActions, selectIsLogging } from '../../../features/auth/authSlice';
+import { InputField } from '../../FormFields/InputField/InputField';
 import LinkButton from '../LinkButton/LinkButton';
 import './AuthForm.css';
-
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { InputField } from '../../FormFields/InputField/InputField';
-import { useForm } from 'react-hook-form';
 
 const schema = yup.object({
 	username: yup
@@ -49,7 +48,6 @@ const AuthForm = ({ action = 'Login', initialState, error }) => {
 	const {
 		handleSubmit,
 		register,
-		reset,
 		formState: { isSubmitting, errors },
 	} = useForm({ defaultValues: initialState, resolver: yupResolver(schema) });
 	const dispatch = useAppDispatch();
@@ -58,7 +56,7 @@ const AuthForm = ({ action = 'Login', initialState, error }) => {
 	useEffect(() => {
 		// reset Error message
 		dispatch(authActions.fetchFailed(''));
-	}, []);
+	}, [dispatch]);
 
 	const onSubmit = async formValues => {
 		if (action === 'Login') {
@@ -66,7 +64,6 @@ const AuthForm = ({ action = 'Login', initialState, error }) => {
 		} else if (action === 'Sign up') {
 			dispatch(authActions.signup(formValues));
 		}
-		reset(initialState);
 	};
 
 	return (
@@ -89,7 +86,7 @@ const AuthForm = ({ action = 'Login', initialState, error }) => {
 							error={Boolean(errors.password) ? errors.password : null}
 						/>
 					</div>
-					{action == 'Login' ? null : (
+					{action === 'Login' ? null : (
 						<div className='auth-form__login__input'>
 							<InputField
 								type='password'

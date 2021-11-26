@@ -1,14 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import LinkButton from '../../../../../../components/Common/LinkButton/LinkButton';
-import { InputField } from '../../../../../../components/FormFields/InputField/InputField';
+import { toast } from 'react-toastify';
 import * as yup from 'yup';
 import commentApi from '../../../../../../api/commentApi';
-import { useHistory } from 'react-router';
-import { useAppSelector } from '../../../../../../app/hooks';
-import { selectIsLoggedIn } from '../../../../../auth/authSlice';
-import { toast } from 'react-toastify';
+import LinkButton from '../../../../../../components/Common/LinkButton/LinkButton';
+import { InputField } from '../../../../../../components/FormFields/InputField/InputField';
 
 const schema = yup
 	.object({
@@ -25,7 +22,7 @@ const CommentForm = ({ questionId, answerId, setQuestion, setShowAdd }) => {
 		handleSubmit,
 		register,
 		reset,
-		formState: { isSubmitting, errors },
+		formState: { errors },
 	} = useForm({ defaultValues: { body: '' }, resolver: yupResolver(schema) });
 
 	const handleFormSubmit = async formValues => {
@@ -46,7 +43,7 @@ const CommentForm = ({ questionId, answerId, setQuestion, setShowAdd }) => {
 	};
 
 	return (
-		<div>
+		<div style={{ marginTop: '12px' }}>
 			<form onSubmit={handleSubmit(handleFormSubmit)}>
 				<InputField
 					placeholder='Write your comment in here.'

@@ -6,8 +6,6 @@ import {
 	authActions,
 	selectCurrentUser,
 } from '../../../features/auth/authSlice';
-import { InputField } from '../../FormFields/InputField/InputField';
-import InputCustom from '../InputCustom/InputCustom';
 import LinkButton from '../LinkButton/LinkButton';
 import './Header.css';
 import SideNavBar from './SideNavBar/SideNavBar';

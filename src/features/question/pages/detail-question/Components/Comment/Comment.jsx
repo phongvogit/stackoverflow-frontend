@@ -1,11 +1,10 @@
 import { format } from 'date-fns';
 import React from 'react';
+import { toast } from 'react-toastify';
 import commentApi from '../../../../../../api/commentApi';
 import { useAppSelector } from '../../../../../../app/hooks';
 import LinkButton from '../../../../../../components/Common/LinkButton/LinkButton';
 import { selectCurrentUser } from '../../../../../auth/authSlice';
-import { toast } from 'react-toastify';
-
 import './Comment.css';
 
 const Comment = ({ data, answerId, questionId, commentId, setQuestion }) => {
@@ -41,7 +40,7 @@ const Comment = ({ data, answerId, questionId, commentId, setQuestion }) => {
 			<p>
 				{body} {' – '}
 				<LinkButton
-					type={'btn--tag'}
+					type={'btn--tag mt-1'}
 					label={Boolean(author) ? author.username : ''}
 				/>{' '}
 				<span className='comment__time'>
@@ -49,7 +48,7 @@ const Comment = ({ data, answerId, questionId, commentId, setQuestion }) => {
 				</span>
 				{(currentUser?.username === author?.username ||
 					currentUser?.role === 'admin') && (
-					<a className='delete' onClick={() => handleDeleteComment()}>
+					<a href='#' className='delete' onClick={() => handleDeleteComment()}>
 						Delete
 					</a>
 				)}

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../app/hooks';
-import InputCustom from '../../components/Common/InputCustom/InputCustom';
 import PaginationCustom from '../../components/Common/Pagination/Pagination';
+import SvgSpinner from '../../components/Common/Spinner/Spinner';
 import { InputField } from '../../components/FormFields/InputField/InputField';
 import CardUser from './components/CardUser';
 import './User.css';
@@ -13,7 +13,6 @@ import {
 	selectUserPagination,
 	userActions,
 } from './userSlice';
-import SvgSpinner from '../../components/Common/Spinner/Spinner';
 
 const User = () => {
 	const dispatch = useDispatch();
@@ -64,6 +63,7 @@ const User = () => {
 			<div className='user__grid-layout-users'>
 				{userList.map(({ profilePhoto, username, question_doc, created }) => (
 					<CardUser
+						ket={username}
 						profilePhoto={profilePhoto}
 						username={username}
 						question_doc={question_doc}

@@ -53,6 +53,7 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+	margin-top: 12px;
 }
 
 .content__info__author__wrapper__delete {

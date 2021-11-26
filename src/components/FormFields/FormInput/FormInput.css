@@ -35,6 +35,7 @@
 .react-tagsinput > span {
 	width: 100%;
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .react-tagsinput--focused {
@@ -51,6 +52,7 @@
 	font-weight: 400;
 	margin: 2px 5px;
 	padding: 5px;
+	white-space: nowrap;
 }
 
 .react-tagsinput-remove {
@@ -73,7 +75,7 @@
 	font-weight: 400;
 	outline: none;
 	padding: 5px;
-	width: 120px;
+	width: 220px;
 }
 
 .react-tagsinput-input:focus {

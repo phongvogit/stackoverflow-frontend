@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import AddQuestion from '../../features/question/pages/add-question/AddQuestion';
 import Question from '../../features/question';
+import AddQuestion from '../../features/question/pages/add-question/AddQuestion';
+import DetailQuestion from '../../features/question/pages/detail-question/DetailQuestion';
 import Tag from '../../features/tag';
 import User from '../../features/user';
-import DetailQuestion from '../../features/question/pages/detail-question/DetailQuestion';
 import UserDetail from '../../features/user/pages/UserDetail';
 
 const Routes = () => {

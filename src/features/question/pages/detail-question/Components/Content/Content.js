@@ -1,12 +1,11 @@
 import { formatDistanceToNowStrict } from 'date-fns';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import answerApi from '../../../../../../api/answerApi';
-import commentApi from '../../../../../../api/commentApi';
 import questionApi from '../../../../../../api/questionApi';
 import { useAppSelector } from '../../../../../../app/hooks';
-import Arrow from '../../../../../../components/Common/Arrow/Arrow';
 import LinkButton from '../../../../../../components/Common/LinkButton/LinkButton';
 import {
 	selectCurrentUser,
@@ -15,12 +14,11 @@ import {
 import Comment from '../Comment/Comment';
 import CommentForm from '../CommentForm/CommentForm';
 import QuestionVote from '../QuestionVote/QuestionVote';
-import { toast } from 'react-toastify';
-
 import './Content.css';
 
 const Content = ({ data, questionId, answerId, setQuestion }) => {
 	const { score, comments, tags, author, text, votes } = data;
+	console.log(comments, 'comments1');
 	const [visibleComments, setVisibleComments] = useState([]);
 	const [difference, setDifference] = useState(null);
 	const [showAddComment, setShowAddComment] = useState(false);
@@ -29,7 +27,7 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 	const isAuthenticated = useAppSelector(selectIsLoggedIn);
 
 	useEffect(() => {
-		setVisibleComments(comments?.splice(0, 3));
+		setVisibleComments(comments?.slice(0, 3));
 	}, [comments]);
 
 	useEffect(() => {
@@ -48,6 +46,7 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 					setQuestion(data);
 				} else {
 					await questionApi.removeQuestion(questionId);
+					toast.success('Remove successfully');
 					history.push('/');
 				}
 			} catch (error) {
@@ -70,11 +69,10 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 					<div className='content__info__text'>
 						<p>{`${text}`}</p>
 					</div>
-
 					<div className='content__info__labels'>
 						{Boolean(tags) &&
 							tags.map(tag => (
-								<div className='content__info__labels-inner'>
+								<div key={tag} className='content__info__labels-inner'>
 									<LinkButton type={'btn--tag'} label={tag} />
 								</div>
 							))}
@@ -83,7 +81,10 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 						{(currentUser?.username === author?.username ||
 							currentUser?.role === 'admin') && (
 							<div className='content__info__author__wrapper__delete'>
-								<a className='delete' onClick={() => handleDeleteQuestion()}>
+								<a
+									href='#'
+									className='delete'
+									onClick={() => handleDeleteQuestion()}>
 									Delete
 								</a>
 							</div>
@@ -128,6 +129,7 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 				<hr />
 				{difference > 0 ? (
 					<a
+						href='#'
 						className='content__show-more'
 						onClick={() => setVisibleComments(comments)}>
 						show <b>{difference}</b> more comments
@@ -135,6 +137,7 @@ const Content = ({ data, questionId, answerId, setQuestion }) => {
 				) : (
 					!showAddComment && (
 						<a
+							href='#'
 							className='content__add-comment'
 							onClick={() =>
 								isAuthenticated

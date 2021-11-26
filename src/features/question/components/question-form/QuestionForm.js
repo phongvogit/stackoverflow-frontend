@@ -1,12 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
 import LinkButton from '../../../../components/Common/LinkButton/LinkButton';
+import FormInput from '../../../../components/FormFields/FormInput/FormInput';
 import { InputField } from '../../../../components/FormFields/InputField/InputField';
 import { TextArea } from '../../../../components/FormFields/TextArea/TextArea';
-import * as yup from 'yup';
 import './QuestionForm.css';
-import FormInput from '../../../../components/FormFields/FormInput/FormInput';
 
 const schema = yup
 	.object({
@@ -75,7 +75,14 @@ const QuestionForm = ({ initialValues, onSubmit }) => {
 					type='text'
 					value={watch('tags')}
 					inputInfo="Be specific and imagine you're asking a question to another person"
-					onChange={e => setValue('tags', e, true)}
+					onChange={e => {
+						console.log(e);
+						setValue(
+							'tags',
+							e.map(e => e.toLowerCase()),
+							true,
+						);
+					}}
 					error={Boolean(errors.tags) ? errors.tags : null}
 				/>
 			</div>

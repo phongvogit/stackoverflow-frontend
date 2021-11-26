@@ -6,7 +6,6 @@ import GroupButtons from '../../../../components/Common/GroupButtons/GroupButton
 import SvgSpinner from '../../../../components/Common/Spinner/Spinner';
 import AnswerForm from './Components/AnswerForm/AnswerForm';
 import Content from './Components/Content/Content';
-
 import './DetailQuestion.css';
 
 const DetailQuestion = () => {
@@ -22,14 +21,15 @@ const DetailQuestion = () => {
 		(async () => {
 			try {
 				const data = await questionApi.getById(questionId);
+				console.log(data, 'data');
 				setQuestion(data);
+
 				setIsLoading(false);
 			} catch (error) {
-				console.log('Failed to fetch question details', error);
 				setIsLoading(false);
 			}
 		})();
-	}, []);
+	}, [questionId]);
 
 	const handleSorting = () => {
 		switch (answerSortType) {
@@ -78,12 +78,12 @@ const DetailQuestion = () => {
 			{Boolean(question.answers) &&
 				question.answers.sort(handleSorting()).map(answer => (
 					<div key={answer._id} className='detail-question__answer__list'>
-						<Content
+						{/* <Content
 							data={answer}
 							questionId={questionId}
 							answerId={answer._id}
 							setQuestion={setQuestion}
-						/>
+						/> */}
 						<hr style={{ marginTop: '80px' }} />
 					</div>
 				))}

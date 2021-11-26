@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './InputCustom.css';
 
 const InputCustom = ({ placeholder, icon }) => {

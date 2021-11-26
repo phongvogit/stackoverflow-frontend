@@ -14,7 +14,6 @@ function* fetchQuestionList(action) {
 
 function* fetchQuestionListByTag(action) {
 	try {
-		console.log('action: ', action);
 		const response = yield call(questionApi.getAllByTags, action.payload);
 		yield put(questionActions.fetchQuestionListSuccess(response));
 	} catch (error) {

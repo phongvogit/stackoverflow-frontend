@@ -29,7 +29,7 @@ const Signup = () => {
 		if (isLoggedIn) {
 			history.push(from);
 		}
-	}, [isLoggedIn]);
+	}, [isLoggedIn, from, history]);
 
 	return (
 		<div className='signup'>

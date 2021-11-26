@@ -1,6 +1,6 @@
 import { formatDistanceToNowStrict } from 'date-fns';
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import userApi from '../../../api/userApi';
 import ListQuestions from './components/ListQuestions';
 import './UserDetail.css';
@@ -14,13 +14,12 @@ const UserDetail = () => {
 		(async () => {
 			try {
 				const data = await userApi.getUserPrivateInfo(username);
-				console.log(data, 'Data user');
 				setUser(data[0]);
 			} catch (error) {
 				console.log('Failed to fetch user questions', error);
 			}
 		})();
-	}, []);
+	}, [username]);
 
 	return (
 		<div className='user-detail'>
@@ -65,6 +64,7 @@ const UserDetail = () => {
 						{user.posts?.[0].question_doc.map(
 							({ _id, title, created }, idx) => (
 								<ListQuestions
+									key={_id}
 									_id={_id}
 									title={title}
 									created={created}

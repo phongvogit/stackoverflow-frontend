@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
-
 import './Pagination.css';
 
 const PaginationCustom = ({ pageCount, page, changePage }) => {

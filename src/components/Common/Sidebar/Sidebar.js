@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import sidebar_items from '../../../assets/JsonData/sidebar_routes.json';
-
 import './sidebar.css';
 
-const SidebarItem = (props) => {
+const SidebarItem = props => {
 	const active = props.active ? 'active' : '';
 	return (
 		<div>
@@ -17,9 +16,8 @@ const SidebarItem = (props) => {
 };
 
 const Sidebar = ({ location = '/', activeItem = -1 }) => {
-	console.log(activeItem);
 	activeItem = sidebar_items.findIndex(
-		(item) => item.route === location.pathname,
+		item => item.route === location.pathname,
 	);
 
 	return (
@@ -27,6 +25,7 @@ const Sidebar = ({ location = '/', activeItem = -1 }) => {
 			{sidebar_items.map((item, index) => (
 				<Link to={item.route} key={index}>
 					<SidebarItem
+						key={item.route}
 						title={item.display_name}
 						icon={item.icon}
 						active={index === activeItem}

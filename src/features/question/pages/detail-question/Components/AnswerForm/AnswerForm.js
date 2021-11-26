@@ -1,11 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import LinkButton from '../../../../../../components/Common/LinkButton/LinkButton';
-import { TextArea } from '../../../../../../components/FormFields/TextArea/TextArea';
-import answerApi from '../../../../../../api/answerApi';
+import { useHistory } from 'react-router';
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
+import answerApi from '../../../../../../api/answerApi';
+import { useAppSelector } from '../../../../../../app/hooks';
+import LinkButton from '../../../../../../components/Common/LinkButton/LinkButton';
+import { TextArea } from '../../../../../../components/FormFields/TextArea/TextArea';
+import { selectIsLoggedIn } from '../../../../../auth/authSlice';
 
 const schema = yup
 	.object({
@@ -22,8 +25,12 @@ const AnswerForm = ({ id, setQuestion }) => {
 		handleSubmit,
 		register,
 		reset,
-		formState: { isSubmitting, errors },
+		formState: { errors },
 	} = useForm({ defaultValues: { text: '' }, resolver: yupResolver(schema) });
+	const history = useHistory();
+
+	const isAuthenticated = useAppSelector(selectIsLoggedIn);
+	console.log(isAuthenticated);
 
 	const handleFormSubmit = async formValues => {
 		try {
@@ -44,7 +51,11 @@ const AnswerForm = ({ id, setQuestion }) => {
 					inputProps={register('text')}
 					error={Boolean(errors.text) ? errors.text : null}
 				/>
-				<LinkButton type={'btn--primary mt-1'} label={'Post your answer'} />
+				<LinkButton
+					type={'btn--primary mt-1'}
+					label={'Post your answer'}
+					handleClick={() => (!isAuthenticated ? history.push('/login') : null)}
+				/>
 			</form>
 		</div>
 	);

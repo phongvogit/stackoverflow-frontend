@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
-import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { useAppSelector } from '../../../app/hooks';
 import {
-	authActions,
 	selectFetchFailed,
 	selectIsLoggedIn,
 } from '../../../features/auth/authSlice';
 import AuthForm from '../../Common/AuthForm/AuthForm';
 import Header from '../../Common/Header/Header';
-
 import './Login.css';
 
 const initialState = {
@@ -29,7 +27,7 @@ const Login = () => {
 		if (isLoggedIn) {
 			history.push(from);
 		}
-	}, [isLoggedIn]);
+	}, [isLoggedIn, from, history]);
 
 	return (
 		<div className='login'>

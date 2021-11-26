@@ -7,9 +7,10 @@ const RightBanner = ({ tags, setSelectedTag }) => {
 		<>
 			<div className='tags-title'>Popular Tags</div>
 			<div className='tags-items'>
-				{tags.map(tag => (
+				{tags.map((tag, idx) => (
 					<div className='tags-item'>
 						<LinkButton
+							key={idx}
 							type={'btn--tag'}
 							label={tag._id}
 							handleClick={() => setSelectedTag(tag._id)}

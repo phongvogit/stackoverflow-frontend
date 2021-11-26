@@ -7,7 +7,7 @@ const questionApi = {
 	},
 	getAllByTags(payload) {
 		const url = '/questions/tags/search';
-		const tags = payload.tags;
+		const tags = [payload.tag];
 		const params = payload.filter;
 		return axiosClient.post(url, { tags }, { params });
 	},
