@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+![Stackoverflow-Clone](https://socialify.git.ci/PhongVo/Stackoverflow-personalProject/image?font=Source%20Code%20Pro&forks=1&issues=1&language=1&owner=1&pattern=Charlie%20Brown&pulls=1&stargazers=1&theme=Dark)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Version](https://img.shields.io/static/v1?label=version&message=2.0.0&color=blue)](https://shields.io/) [![NPM](https://img.shields.io/static/v1?label=npm&message=6.8.5&color=blue)](https://shields.io/) [![NODE](https://img.shields.io/static/v1?label=node&message=10.12.8&color=success)](https://shields.io/) [![MYSQL](https://img.shields.io/static/v1?label=mysql&message=8.0.10&color=blueviolet)](https://shields.io/) [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://shields.io/)
 
-## Available Scripts
+As the name suggests, this project is a clone of a famous Q/A website.
 
-In the project directory, you can run:
+This repo consists of the Frontend code of the project, the backend code is in [Stackoverflow-Clone-Backend](https://github.com/phongvogit/stackoverflow-backend)
 
-### `yarn start`
+## My Tech Stack (MERN)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Front-end
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Front-end Framework: `React.js (with Redux-Saga & Toolkit)`
+- Styling: `CSS`
 
-### `yarn test`
+#### Back-end
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- For handling server requests: `Node.js with Express.js Framework`
+- As Database: `MONGODB`
+- API tested using: `REST Client & POSTMAN`
 
-### `yarn build`
+## Guidelines to setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Open your local CLI -
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```
+   mkdir Stackoverflow-project
+   cd Stackoverflow-project
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Open a new CLI terminal and goto the root `Stackoverflow-Clone` folder you created in the first step.
+3. Setup the Frontend code -
 
-### `yarn eject`
+   - Clone the code & install the modules-
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+     ```
+     git clone https://github.com/Mayank0255/Stackoverflow-Clone-Frontend.git
+     cd Stackoverflow-Clone-Frontend
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+     npm install
+     ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   - Run the client server `yarn start`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+_Follow the steps properly and you are good to go._
 
-## Learn More
+## DEMO
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Link: [Stackoverflow-phongdeptrai.website](https://serene-yalow-5f9d89.netlify.app/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### IMAGES
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="/demo/images/demo-1.png" width=340px /><img src="/demo/images/demo-2.png" width=340px /> <img src="/demo/images/demo-3.png" width=340px /><img src="/demo/images/demo-4.png" width=340px /> <img src="/demo/images/demo-5.png" width=340px /><img src="/demo/images/demo-7.png" width=340px /> <img src="/demo/images/demo-8.png" width=340px /><img src="/demo/images/demo-9.png" width=340px />
