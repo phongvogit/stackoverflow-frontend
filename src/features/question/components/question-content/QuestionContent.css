@@ -84,6 +84,7 @@
 	display: flex;
 	justify-content: flex-end;
 	font-size: 0.7em;
+	margin-top: 12px;
 }
 
 .question-content__right__author > div {

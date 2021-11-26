@@ -45,53 +45,61 @@ const DetailQuestion = () => {
 	};
 
 	return (
-		<div className='detail-question'>
-			{isLoading && (
+		<>
+			{Object.keys(question).length === 0 ? (
 				<div className='loading item-center'>
 					<SvgSpinner />
 				</div>
-			)}
-			<h2>{question.title}</h2>
-			<p>
-				Asked{' '}
-				{question.created !== undefined &&
-					formatDistanceToNowStrict(new Date(question.created), {
-						addSuffix: true,
-					})}
-			</p>
-			<hr />
-			<Content
-				data={question}
-				questionId={questionId}
-				setQuestion={setQuestion}
-			/>
-			{/* Answer */}
-			<div className='detail-question__answer__header'>
-				<h2>Answers</h2>
-				<div className='detail-question__answer__header__buttons'>
-					<GroupButtons
-						labels={['Votes', 'Newest', 'Oldest']}
-						setSelected={setAnswersSortType}
+			) : (
+				<div className='detail-question'>
+					{isLoading && (
+						<div className='loading item-center'>
+							<SvgSpinner />
+						</div>
+					)}
+					<h2>{question.title}</h2>
+					<p>
+						Asked{' '}
+						{question.created !== undefined &&
+							formatDistanceToNowStrict(new Date(question.created), {
+								addSuffix: true,
+							})}
+					</p>
+					<hr />
+					<Content
+						data={question}
+						questionId={questionId}
+						setQuestion={setQuestion}
 					/>
-				</div>
-			</div>
-			{Boolean(question.answers) &&
-				question.answers.sort(handleSorting()).map(answer => (
-					<div key={answer._id} className='detail-question__answer__list'>
-						<Content
-							data={answer}
-							questionId={questionId}
-							answerId={answer._id}
-							setQuestion={setQuestion}
-						/>
-						<hr style={{ marginTop: '80px' }} />
+					{/* Answer */}
+					<div className='detail-question__answer__header'>
+						<h2>Answers</h2>
+						<div className='detail-question__answer__header__buttons'>
+							<GroupButtons
+								labels={['Votes', 'Newest', 'Oldest']}
+								setSelected={setAnswersSortType}
+							/>
+						</div>
 					</div>
-				))}
+					{Boolean(question.answers) &&
+						question.answers.sort(handleSorting()).map(answer => (
+							<div key={answer._id} className='detail-question__answer__list'>
+								<Content
+									data={answer}
+									questionId={questionId}
+									answerId={answer._id}
+									setQuestion={setQuestion}
+								/>
+								<hr style={{ marginTop: '80px' }} />
+							</div>
+						))}
 
-			{/*Add Answer */}
-			<h2>Your Answer</h2>
-			<AnswerForm id={questionId} setQuestion={setQuestion} />
-		</div>
+					{/*Add Answer */}
+					<h2>Your Answer</h2>
+					<AnswerForm id={questionId} setQuestion={setQuestion} />
+				</div>
+			)}
+		</>
 	);
 };
 

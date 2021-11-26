@@ -1,5 +1,6 @@
 import { format } from 'date-fns';
 import React from 'react';
+import { useHistory } from 'react-router';
 import { toast } from 'react-toastify';
 import commentApi from '../../../../../../api/commentApi';
 import { useAppSelector } from '../../../../../../app/hooks';
@@ -9,6 +10,7 @@ import './Comment.css';
 
 const Comment = ({ data, answerId, questionId, commentId, setQuestion }) => {
 	const { body, author, created } = data;
+	const history = useHistory();
 	const currentUser = useAppSelector(selectCurrentUser);
 
 	const handleDeleteComment = async () => {
@@ -40,6 +42,7 @@ const Comment = ({ data, answerId, questionId, commentId, setQuestion }) => {
 			<p>
 				{body} {' – '}
 				<LinkButton
+					handleClick={() => history.push(`/users/${author.username}`)}
 					type={'btn--tag mt-1'}
 					label={Boolean(author) ? author.username : ''}
 				/>{' '}
